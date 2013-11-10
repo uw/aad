@@ -1,0 +1,10 @@
+<ContactsSource xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ContactsDataKind
+        android:mimeType="vnd.android.cursor.item/vnd.helloaccount.profile"
+        android:icon="@drawable/ic_launcher"
+        android:summaryColumn="data2"
+        android:detailColumn="data3"
+        android:detailSocialSummary="true" />
+
+</ContactsSource>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+     <Preference 
+        android:key="facebook_login"
+        android:title="Login to Facebook"/>   
+
+     <Preference 
+        android:key="facebook_share"
+        android:title="Share to Facebook"/> 
+
+</PreferenceScreen>

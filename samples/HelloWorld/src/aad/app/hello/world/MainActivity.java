@@ -9,6 +9,8 @@ public class MainActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_main);		
+		
+		String test = this.getResources().getString(R.string.hello);
 	}
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">HelloHTTP</string>
+    <string name="default_url">https://raw.github.com/uw/aad/master/content/c15/assets/books.json</string>
+    <string name="get">Get</string>
+    <string name="parseJSON">Parse as JSON</string>
+    <string name="parseXML">Parse as XML</string>
+    <string name="get_image">Get Image</string>
+</resources>

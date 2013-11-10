@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/buttonLinearLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/playAssetOgg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/buttonPlayAssetOGG" />
+
+    <Button
+        android:id="@+id/playMP3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/buttonPlayMP3" />
+
+    <Button
+        android:id="@+id/playAssetMID1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/buttonPlayAssetMID1" />
+
+    <Button
+        android:id="@+id/playAssetMID2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/buttonPlayAssetMID2" />
+            
+<!--     <Button -->
+<!--         android:id="@+id/loopPlayMP3" -->
+<!--         android:layout_width="match_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_margin="10dp" -->
+<!--         android:text="@string/buttonLoopMP3" /> -->
+
+    <Button
+        android:id="@+id/playHit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/buttonPlayHit" />
+
+</LinearLayout>

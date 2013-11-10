@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">HalloWelt</string>
+    <string name="greeting">Hello!</string>
+    <string name="username">User Name</string>
+    <string name="password">Password</string>
+    <string name="signin">Sign In</string>
+    <string name="policy_privacy">Registration for this application a valid email address.  Data may be used to customize and improve your user experience in this application.</string>
+    <string name="upgrade">Upgrade to Pro!</string>
+</resources>

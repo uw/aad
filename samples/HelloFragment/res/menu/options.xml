@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <group
+        android:id="@+id/group1"
+        android:menuCategory="container" >
+        <item
+            android:id="@+id/item1"
+            android:showAsAction="always"
+            android:title="Item 1">
+        </item>
+        <item
+            android:id="@+id/item2"
+            android:showAsAction="ifRoom|withText"
+            android:title="Item 2">
+        </item>
+    </group>
+    
+    <group android:id="@+id/group2" >
+        <item
+            android:id="@+id/item3"
+            android:title="Item 3">
+        </item>
+        <item
+            android:id="@+id/item4"
+            android:title="Item 4">
+        </item>
+    </group>
+
+</menu>

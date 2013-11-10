@@ -1,0 +1,4 @@
+<sync-adapter xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accountType="aad.app.hello.account"
+    android:contentAuthority="aad.app.hello.account.HelloAccount"
+    android:supportsUploading="false" />

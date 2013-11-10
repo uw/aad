@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">HalloWelt</string>
+    <string name="greeting">¡Hola!</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="signin">Iniciar sesión</string>
+    <string name="policy_privacy">La inscripción para esta solicitud una dirección de correo electrónico válida. Los datos pueden ser utilizados para personalizar y mejorar su experiencia de usuario en esta aplicación.</string>
+    <string name="upgrade">Actualizar a Pro!</string>
+</resources>

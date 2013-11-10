@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">HelloFacebook</string>
+    <string name="app_description">Displays your contact images as a background.</string>
+    <string name="app_id">268937826508130</string>
+</resources>

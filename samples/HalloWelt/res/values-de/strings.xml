@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">HalloWelt</string>
+    <string name="greeting">Hallo!</string>
+    <string name="policy_privacy">Die Anmeldung für diese Anwendung eine gültige E-Mail-Adresse. Daten können verwendet werden, um die Personalisierung und Optimierung Ihrer Erfahrung in dieser Anwendung werden.</string>
+    <string name="username">Benutzername</string>
+    <string name="password">Kennwort</string>
+    <string name="signin">Anmeldung</string>
+    <string name="upgrade">Verbessern auf Pro!</string>
+</resources>

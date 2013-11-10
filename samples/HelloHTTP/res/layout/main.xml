@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <EditText
+        android:id="@+id/urlEditText"
+        android:inputType="textUri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/default_url">
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/getButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/get" />
+
+    <CheckBox
+        android:id="@+id/jsonCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/parseJSON" />
+    
+    <CheckBox
+        android:id="@+id/xmlCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/parseXML" />
+
+    <Button
+        android:id="@+id/getImageButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/get_image" />
+
+    <ImageView
+        android:id="@+id/mainImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/scrollLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:background="#5D8AA8"
+                android:id="@+id/headerTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="8dp" />
+
+            <TextView
+                android:background="#3B444B"
+                android:id="@+id/contentTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

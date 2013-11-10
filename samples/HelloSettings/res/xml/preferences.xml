@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/settings_general" />
+
+    <PreferenceScreen
+        android:summary="Launch Google"
+        android:title="Google" >
+        
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://www.google.com" />
+        
+    </PreferenceScreen>
+
+    <PreferenceCategory android:title="@string/settings_more" />
+
+    <PreferenceScreen
+        android:key="pref_other_settings"
+        android:summary="Other Settings"
+        android:title="Other Settings" >
+        
+        <EditTextPreference
+            android:key="pref_your_name"
+            android:summary="Enter your name"
+            android:title="Your Name" />
+
+        <CheckBoxPreference
+            android:key="pref_kitten_approval"
+            android:summary="Click to indicate your approval of small, young felines"
+            android:title="Kitten Approval" />
+
+        <Preference
+            android:key="pref_show_toast"
+            android:summary="Show a Long Toast"
+            android:title="Show Toast" />
+        
+    </PreferenceScreen>
+
+</PreferenceScreen>

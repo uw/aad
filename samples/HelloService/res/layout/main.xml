@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Service" />
+
+    <Button
+        android:id="@+id/stopButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Stop Service" />
+
+    <Button
+        android:enabled="false"
+        android:id="@+id/getHelloButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Hello" />
+        
+    <Button
+        android:enabled="false"
+        android:id="@+id/getGoodbyeButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Goodbye" />
+        
+    <TextView
+        android:id="@+id/serviceTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+</LinearLayout>

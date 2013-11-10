@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">HelloCamera</string>
+    <string name="buttonAction">Start internal Camera</string>
+    <string name="buttonAudioAction">Start Audio Recording</string>
+    <string name="buttonIntent">Start Camera via Intent</string>
+    <string name="playAudioRecord">Play Audio</string>
+    <string name="startAudioRecord">Start Audio Recording</string>
+    <string name="stopAudioRecord">Stop Audio Recording</string>
+    <string name="recordAudioViaIntent">Record Audio via Intent</string>
+</resources>

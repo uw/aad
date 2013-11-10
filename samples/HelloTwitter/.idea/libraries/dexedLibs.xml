@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="dexedLibs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/jtwitter-f724b1e356cddbcdc5e52863e3b11e8c.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/jtwitter-d8da28f7dd3d10767478d0e951c7d994.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/twitter4j-core-android-2.2.5-aae5aa157d8256375d8fdb124ae029e3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/signpost-commonshttp4-1.2.1.1-93bac1cd1c6eb94b72144bf9ff79ab1b.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/signpost-commonshttp4-1.2.1.1-8f5cbba0e35bb7173670557c82e526df.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/annotations-23dc1b21280d18b9c2786863e3bc4d61.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/signpost-core-1.2.1.1-597b55b97017dfddd4a70e3e995e7863.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/annotations-62a684d87b7066a53010259a8b82d576.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/signpost-core-1.2.1.1-baef8ded286c180db4104db6f202a7fa.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/twitter4j-core-android-2.2.5-803b8404551e57ae5e79fdee4c877061.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

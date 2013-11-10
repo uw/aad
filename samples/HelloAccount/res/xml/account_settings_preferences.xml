@@ -1,0 +1,44 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="Category 1" />
+
+    <PreferenceScreen
+        android:summary="A related group of settings"
+        android:title="Group 1 Settings" >
+        <CheckBoxPreference
+            android:key="cat1_checkbox_1"
+            android:summary="A checkbox to use as a setting"
+            android:title="Checkbox 1" />
+
+        <ListPreference
+            android:dialogTitle="List 1"
+            android:entries="@array/pref_entries"
+            android:entryValues="@array/pref_values"
+            android:key="cat1_list_1"
+            android:summary="A list of items"
+            android:title="List 1" />
+    </PreferenceScreen>
+
+    <PreferenceCategory android:title="Category 2" />
+
+    <PreferenceScreen
+        android:summary="A related group of settings"
+        android:title="Group 2 Settings" >
+        <EditTextPreference
+            android:dialogTitle="Dialog Title"
+            android:key="cat2_edittext_1"
+            android:summary="Edit the text of something"
+            android:title="Group 2 Dialog" />
+    </PreferenceScreen>
+
+    <PreferenceCategory android:title="Category 3" />
+
+    <PreferenceScreen
+        android:summary="Show the details for this account"
+        android:title="Show Account Details" >
+        <intent
+            android:targetClass="aad.app.hello.account.AccountDetails"
+            android:targetPackage="aad.app.hello.account" />
+    </PreferenceScreen>
+
+</PreferenceScreen>

@@ -12,7 +12,7 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is the portrait orientation"
+        android:text="@string/portrait_name"
         android:textColor="#fff" 
         android:textSize="24sp" />
 

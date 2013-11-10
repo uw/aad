@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">HelloTwitter</string>
+    <string name="submit_tweet">Tweet</string>
+    <string name="compose_new_tweet">Compose new Tweet...</string>
+    <string name="authorize">Authorize</string>
+    <string name="label_jtwitter">JTwitter</string>
+    <string name="label_twitter4j">Twitter4J</string>
+    <string name="label_clear">Clear Authorizations</string>
+</resources>

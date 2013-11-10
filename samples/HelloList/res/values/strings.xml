@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">HelloList</string>
+    <string name="button_basic">Basic ListView</string>
+    <string name="button_custom">Custom Adapter ListView</string>
+    <string name="button_sql">SQLite Cursor ListView</string>
+    <string name="button_contact">Contact ListView</string>
+    <string-array name="spinner_array">
+        <item>@string/button_basic</item>
+        <item>@string/button_custom</item>
+        <item>@string/button_sql</item>
+        <item>@string/button_contact</item>
+    </string-array>
+    <string name="start">Start</string>
+</resources>

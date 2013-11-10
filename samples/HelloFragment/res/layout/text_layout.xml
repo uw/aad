@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/articleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lectus eros, commodo at varius sed, imperdiet quis mi. Nulla facilisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras sed magna dui. Nullam fermentum posuere varius. Curabitur non posuere dolor. Proin eget quam dolor. Vivamus blandit libero varius velit tincidunt facilisis. In luctus, mauris sed placerat adipiscing, massa mi facilisis mauris, at aliquet leo orci ut purus. Aenean lorem lacus, iaculis in vehicula vitae, vehicula nec mauris. Phasellus feugiat tristique imperdiet. Praesent nec massa vel lorem tempor scelerisque. Praesent blandit, sapien ut sollicitudin ornare, nibh arcu ullamcorper massa, sit amet tempus lectus nunc vitae ipsum. Quisque a elit a lorem lobortis feugiat." 
+        android:textSize="16sp"/>
+
+</FrameLayout>

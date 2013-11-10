@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Master" id="1" height="520" measuredWidth="720" measuredHeight="520">
+    <screen xsi:type="model:WidgetGroup" href="../assets/Android4/Android4.screen#Tablet"/>
+    <overrides>
+      <widgets ref="18" width="720" height="520"/>
+      <widgets ref="154" x="42" y="46" width="634" height="426"/>
+      <widgets ref="68" x="42" y="444" height="40"/>
+      <widgets ref="69" y="2" width="634" height="24"/>
+      <widgets ref="70" x="9" y="3" height="20"/>
+      <widgets ref="71" width="19" height="20"/>
+      <widgets ref="72" x="50" y="3" height="20"/>
+      <widgets ref="73" width="19" height="20"/>
+      <widgets ref="74" x="90" y="3" height="20"/>
+      <widgets ref="75" width="19" height="20"/>
+      <widgets ref="76" x="590" y="7" width="11" height="12"/>
+      <widgets ref="77" x="602" y="7" width="11" height="12"/>
+      <widgets ref="78" x="615" y="7" width="11" height="12"/>
+      <widgets ref="79" x="550" y="0" width="36">
+        <font size="15px"/>
+      </widgets>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Master" id="2" x="730" measuredWidth="280" measuredHeight="520">
+    <screen xsi:type="model:WidgetGroup" href="../assets/Android4/Android4.screen#Phone"/>
+    <overrides>
+      <widgets ref="17" width="280" height="520"/>
+      <widgets ref="27" x="23" y="68" width="232" height="394"/>
+      <widgets ref="47" x="22" y="65" width="232"/>
+      <widgets ref="48" y="2" width="232" height="14"/>
+      <widgets ref="49" x="165" width="8" height="9"/>
+      <widgets ref="50" x="179" width="8" height="9"/>
+      <widgets ref="51" x="193" width="8" height="9"/>
+      <widgets ref="29" x="22" y="434" width="232"/>
+      <widgets ref="30" width="232" height="28"/>
+      <widgets ref="31" x="36" y="2" width="23"/>
+      <widgets ref="32" width="23" height="24"/>
+      <widgets ref="33" x="102" y="2" width="23"/>
+      <widgets ref="34" width="23" height="24"/>
+      <widgets ref="35" x="166" y="2" width="23"/>
+      <widgets ref="36" width="23" height="24"/>
+      <widgets ref="52" x="203">
+        <font size="11px"/>
+      </widgets>
+    </overrides>
+  </widgets>
+  <widgets xsi:type="model:Placeholder" id="18" x="753" y="78" width="127" height="128" text="LOGO" measuredWidth="127" measuredHeight="128"/>
+  <widgets xsi:type="model:TextField" id="3" x="448" y="165" width="177" text="Text field" measuredWidth="177" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="4" x="449" y="223" width="176" text="Text field" measuredWidth="176" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="5" x="770" y="151" width="201" text="Username" measuredWidth="201" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="6" x="770" y="193" width="201" text="Password" measuredWidth="201" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="7" x="449" y="143" text="Username" measuredWidth="58" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="8" x="449" y="201" text="Password" measuredWidth="55" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Checkbox" id="9" x="770" y="229" text="Remember Me" measuredWidth="99" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" id="10" x="770" y="384" width="201" text="Sign In" measuredWidth="201" measuredHeight="25">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Checkbox" id="11" x="449" y="259" text="Remember Me" measuredWidth="99" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" id="12" x="449" y="312" width="176" text="Sign In" measuredWidth="176" measuredHeight="25">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="14" x="753" y="99"/>
+  <widgets xsi:type="model:Placeholder" id="17" x="72" y="69" width="345" height="348" text="LOGO" measuredWidth="345" measuredHeight="348"/>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

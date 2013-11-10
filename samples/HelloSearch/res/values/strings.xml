@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">HelloSearch</string>
+    <string name="search_hint">Search HelloSearch Content</string>
+    <string name="search_results">Search Results</string>
+</resources>

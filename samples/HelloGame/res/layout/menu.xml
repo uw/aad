@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <aad.app.hello.game.MenuView
+        android:id="@+id/menuView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/startButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="Start"
+                android:width="160dp" />
+
+            <Button
+                android:id="@+id/optionsButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Options" />
+
+        </LinearLayout>
+        
+    </aad.app.hello.game.MenuView>
+    
+
+</merge>

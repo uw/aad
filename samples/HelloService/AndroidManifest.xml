@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="aad.app.hello.service"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <activity
+            android:name=".HelloServiceActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".receivers.GoodbyeToastReceiver" >
+            <intent-filter>
+                <action android:name="aad.app.e05.GOODBYE"></action>
+            </intent-filter>
+        </receiver>
+        
+        <service
+            android:name="aad.app.hello.service.services.UpdateService"
+            android:exported="true"
+            android:process=":service" >
+            
+        </service>
+        
+        
+    </application>
+
+</manifest>

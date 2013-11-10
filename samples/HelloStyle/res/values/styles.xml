@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+        
+    <style name="Theme.Custom.Button" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/control_button</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textAppearance">@style/Theme.Custom.TextAppearance.Button</item>
+    </style>
+
+    <style name="Theme.Custom.Button.Special">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:textColor">#ff0000</item>
+    </style>
+    
+    <style name="Theme.Custom.EditText" parent="@android:style/Widget.EditText">
+        <item name="android:background">@drawable/control_edittext</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textAppearance">@style/Theme.Custom.TextAppearance.EditText</item>
+    </style>    
+
+    <style name="Theme.Custom.ProgressBar" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/control_progress</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="Theme.Custom.TextView" parent="@android:style/Widget.TextView">
+        <item name="android:padding">12dp</item>
+        <item name="android:textAppearance">@style/Theme.Custom.TextAppearance.TextView</item>
+    </style>
+    
+    <style name="Theme.Custom.TextAppearance" parent="@android:style/TextAppearance.Small">
+    </style>
+    
+    <style name="Theme.Custom.TextAppearance.Button">
+        <item name="android:textColor">@color/CustomBlue</item>
+    </style>
+
+    <style name="Theme.Custom.TextAppearance.EditText">
+        <item name="android:textColor">@color/CustomGrey</item>
+    </style>
+
+     <style name="Theme.Custom.TextAppearance.TextView">
+        <item name="android:textColor">@color/CustomBlack</item>
+    </style>
+    
+</resources>

@@ -1,0 +1,17 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="General" />
+
+    <PreferenceScreen
+        android:summary="Update your account settings"
+        android:title="Account Settings" >
+
+        <intent
+            android:targetPackage="aad.app.hello.account"
+            android:targetClass="aad.app.hello.account.AccountSettings" />
+        
+    </PreferenceScreen>
+
+</PreferenceScreen>
+
+

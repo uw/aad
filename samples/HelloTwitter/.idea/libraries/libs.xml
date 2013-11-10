@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/twitter4j-core-android-2.2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/signpost-commonshttp4-1.2.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jtwitter.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/signpost-core-1.2.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
