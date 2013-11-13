@@ -1,5 +1,7 @@
 package aad.app.hello.input;
 
+import java.lang.ref.WeakReference;
+
 import aad.app.hello.input.R;
 import android.app.Activity;
 import android.app.Dialog;
@@ -7,7 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.ClipboardManager;
+import android.content.ClipboardManager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,32 +24,41 @@ import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.ToggleButton;
 
-public class HelloInputActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity implements OnClickListener {
 
-    public static final String TAG = HelloInputActivity.class.getSimpleName();
+    public static final String TAG = MainActivity.class.getSimpleName();
 
-    private ToggleButton mToggleButton;
+    /**
+     * Create our own handler to deal with input messages
+     */
+    private static class InputMessageHandler extends Handler {
 
-    private Handler mHandler = new Handler(){
+    	private final WeakReference<MainActivity> mActivity;
+    	
+        public InputMessageHandler(MainActivity helloInputActivity) {
+			mActivity = new WeakReference<MainActivity>(helloInputActivity);
+		}
 
-        @Override
+		@Override
         public void handleMessage(Message msg) {
 
             if (msg.arg1 == R.id.radioToast) {
-                setToast((String) msg.obj);
+            	mActivity.get().setToast((String) msg.obj);
             }
 
             if (msg.arg1 == R.id.radioClipboard) {
-                setClipboard((String) msg.obj);
+            	mActivity.get().setClipboard((String) msg.obj);
             }
 
             if (msg.arg1 == R.id.radioDialog) {
-                setDialog((String) msg.obj);
+            	mActivity.get().setDialog((String) msg.obj);
             }
         }    
 
-    };   
-        
+    };  
+    
+    private ToggleButton mToggleButton;    
+    private InputMessageHandler mHandler = new InputMessageHandler(this);     
     private SeekBar mSeekBar;
     private OnSeekBarChangeListener mSeekListener = new OnSeekBarChangeListener() {
 
@@ -71,12 +82,14 @@ public class HelloInputActivity extends Activity implements OnClickListener {
 
     };
 
-    /** Called when the activity is first created. */
+    /** 
+     * Called when the activity is first created. 
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_main);
 
         this.findViewById(R.id.formButton).setOnClickListener(this);
         this.findViewById(R.id.sendButton).setOnClickListener(this);
@@ -104,6 +117,9 @@ public class HelloInputActivity extends Activity implements OnClickListener {
 
     }
 
+    /**
+     * Set the Awesome level of our toggle button.
+     */
     private void setAwesomeLevel(int progress) {
 
         Log.d(TAG, "setAwesomeLevel() progress: " + progress);
@@ -126,6 +142,11 @@ public class HelloInputActivity extends Activity implements OnClickListener {
 
     }
 
+    /**
+     * Display a toast.
+     * 
+     * @param text
+     */
     private void setToast(String text) {
 
         Toast.makeText(this, text, Toast.LENGTH_LONG).show();
