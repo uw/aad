@@ -8,7 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-public class HelloListActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity implements OnClickListener {
 
     /** Called when the activity is first created. */
     @Override
