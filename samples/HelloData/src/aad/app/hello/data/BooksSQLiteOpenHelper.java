@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class BooksSQLiteOpenHelper extends SQLiteOpenHelper {
 
-    private final static String DB_NAME = "books";
+    private final static String DB_NAME = Books.DATABASE_NAME;
     private final static int DB_VERSION = 1;
 
     private final static String TABLE_NAME = Books.Book.TABLE_NAME;
@@ -21,8 +21,7 @@ public class BooksSQLiteOpenHelper extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
-    
-    
+        
     @Override
     public void onCreate(SQLiteDatabase db) {
 

@@ -4,7 +4,6 @@ import aad.app.hello.data.R;
 import android.app.ListActivity;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
@@ -16,9 +15,7 @@ import android.view.MenuItem;
 import android.widget.SimpleCursorAdapter;
 
 
-public class HelloDataActivity extends ListActivity {
-
-    private static final String TAG = HelloDataActivity.class.getSimpleName();
+public class MainActivity extends ListActivity {
     
     private Context mContext;
     
@@ -129,7 +126,5 @@ public class HelloDataActivity extends ListActivity {
         return super.onOptionsItemSelected(item);
     }
     
-    
-
 
 }

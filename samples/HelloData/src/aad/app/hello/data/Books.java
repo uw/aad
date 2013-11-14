@@ -4,8 +4,10 @@ import android.provider.BaseColumns;
 
 public class Books implements BaseColumns {
 
+	public static final String DATABASE_NAME = "books";
+	
     public static final class Book {
-        
+    	
         public static final String TABLE_NAME = "book";
 
         public static final String ID = BaseColumns._ID;
