@@ -22,9 +22,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-public class HelloServiceActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity implements OnClickListener {
 
-    private static final String TAG = HelloServiceActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     // $LOCAL
     private UpdateService mService;
@@ -96,7 +96,7 @@ public class HelloServiceActivity extends Activity implements OnClickListener {
         Log.d(TAG, "onCreate() on ThreadID: " + threadID);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_main);
         
         findViewById(R.id.startButton).setOnClickListener(this);
         findViewById(R.id.stopButton).setOnClickListener(this);

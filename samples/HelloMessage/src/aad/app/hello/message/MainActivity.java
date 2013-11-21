@@ -10,9 +10,9 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.TextView;
 
-public class HelloMessageActivity extends Activity {
+public class MainActivity extends Activity {
 
-    public static final String TAG = HelloMessageActivity.class.getSimpleName();
+    public static final String TAG = MainActivity.class.getSimpleName();
 
     private TextView mTextView;
 
@@ -60,7 +60,7 @@ public class HelloMessageActivity extends Activity {
                     //addText(output);
                     // !!!
 
-                    // Get a message from the global pool
+                    // Get a message from the global pool - this is a bit more efficient
                     Message msg = Message.obtain();
                     msg.obj = output;
                     mMainHandler.sendMessage(msg);
@@ -120,7 +120,7 @@ public class HelloMessageActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_main);
 
         mStringBuilder = new StringBuilder();
         mTextView = (TextView) this.findViewById(R.id.mainTextView);
