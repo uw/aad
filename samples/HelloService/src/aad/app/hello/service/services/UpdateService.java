@@ -79,7 +79,7 @@ public class UpdateService extends Service {
         Log.d(TAG, "getGoodbye()");
         
         Intent goodbyeIntent = new Intent();
-        goodbyeIntent.setAction("aad.app.e05.GOODBYE");
+        goodbyeIntent.setAction("aad.app.hello.service.GOODBYE");
         this.sendBroadcast(goodbyeIntent);  
     }    
     
@@ -135,6 +135,10 @@ public class UpdateService extends Service {
     public void onDestroy() {
         Log.d(TAG, "onDestroy()");
         stopUpdating();
+        
+        // LEARN: We are forcing an exit here just to show the :service process disappears
+        System.exit(0);
+        
     }
 
 

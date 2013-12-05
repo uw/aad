@@ -103,7 +103,7 @@ public class MainActivity extends Activity implements OnClickListener {
         findViewById(R.id.getHelloButton).setOnClickListener(this);
         findViewById(R.id.getGoodbyeButton).setOnClickListener(this);
         
-        this.registerReceiver(mGoodbyeTextReceiver, new IntentFilter("aad.app.e05.GOODBYE"));       
+        this.registerReceiver(mGoodbyeTextReceiver, new IntentFilter("aad.app.hello.service.GOODBYE"));       
     }
 
     @Override
