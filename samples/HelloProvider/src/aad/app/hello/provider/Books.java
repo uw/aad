@@ -7,8 +7,8 @@ import android.provider.BaseColumns;
 public class Books implements BaseColumns {
 
     public static final Uri CONTENT_URI = Uri.parse("content://" + BooksContentProvider.AUTHORITY + "/books");
-    public static final String DIR_CONTENT_TYPE = "vnd.android.cursor.dir/vnd.aad.app.c12.books";
-    public static final String ITEM_CONTENT_TYPE = "vnd.android.cursor.item/vnd.aad.app.c12.book";
+    public static final String DIR_CONTENT_TYPE = "vnd.android.cursor.dir/vnd.aad.app.hello.provider.books";
+    public static final String ITEM_CONTENT_TYPE = "vnd.android.cursor.item/vnd.aad.app.hello.provider.book";
 
     public static final class Book {
         

@@ -9,9 +9,9 @@ import android.support.v4.content.CursorLoader;
 import android.util.Log;
 import android.widget.SimpleCursorAdapter;
 
-public class HelloContentActivity extends ListActivity {
+public class MainActivity extends ListActivity {
 
-    private static final String TAG = HelloContentActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
     
     private SimpleCursorAdapter mAdapter;
     

@@ -16,9 +16,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
-public class HelloProviderActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity implements OnClickListener {
 
-    private static final String TAG = HelloProviderActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     private BooksSQLiteOpenHelper mSQLHelper;
     private SimpleCursorAdapter mAdapter;
@@ -34,7 +34,7 @@ public class HelloProviderActivity extends Activity implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);        
+        setContentView(R.layout.activity_main);        
         
         mBookNameCreateEditText = (EditText) this.findViewById(R.id.bookNameCreate);
         mBookISBNCreateEditText = (EditText) this.findViewById(R.id.bookISBNCreate);

@@ -16,7 +16,7 @@ public class BooksContentProvider extends ContentProvider {
 
     public static final String TAG = BooksContentProvider.class.getSimpleName();
 
-    public static final String AUTHORITY = "aad.app.c12.providers.BooksContentProvider";
+    public static final String AUTHORITY = "aad.app.hello.provider.providers.BooksContentProvider";
 
     private static final int BOOK = 1;
     private static final int BOOK_ID = 2;
