@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>HelloTest_Tests</name>
+	<name>OddRelative</name>
 	<comment></comment>
 	<projects>
-		<project>E02_HelloTest</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

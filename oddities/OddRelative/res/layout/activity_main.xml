@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <!-- Test Top of Top Left -->
+
+    <TextView
+        android:id="@+id/topLeftTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Top Left" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/topLeftTextView"
+        android:text="Top of Top Left" />
+
+    <!-- Right of Top Right -->
+
+    <TextView
+        android:id="@+id/rightTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Top Right" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/rightTextView"
+        android:text="Top of Top Left" />
+
+    <!-- Competing alignment - Seems to stretch no matter what the size -->
+
+    <TextView
+        android:id="@+id/bottomCenterTextView"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#00F"
+        android:text="Bottom Center" />
+
+    <TextView
+        android:id="@+id/topCenterTextView"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottomCenterTextView"
+        android:layout_alignLeft="@id/bottomCenterTextView"
+        android:layout_alignRight="@id/bottomCenterTextView"
+        android:background="#F00"
+        android:text="Top Center" />
+
+    <!-- Center Loop - This is not allowed: Exception raised during rendering: Circular dependencies cannot exist in RelativeLayout -->
+    <!-- <TextView -->
+    <!-- android:id="@+id/bottomCenterTextView" -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:layout_above="@+id/topCenterTextView" -->
+    <!-- android:text="Bottom Center" /> -->
+
+
+    <!-- <TextView -->
+    <!-- android:id="@+id/topCenterTextView" -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:layout_above="@id/bottomCenterTextView" -->
+    <!-- android:text="Top Center" /> -->
+
+
+    <!-- Test Top of Top Left -->
+
+    <TextView
+        android:id="@+id/bottomLeftTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:text="Bottom Left" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottomLeftTextView"
+        android:layout_below="@id/bottomLeftTextView"
+        android:layout_toRightOf="@id/bottomLeftTextView"
+        android:text="Bottom and Top of Bottom Left" />
+
+</RelativeLayout>
