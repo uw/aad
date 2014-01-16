@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="about">About</string>
+    <string name="action_about">@string/about</string>
+    <string name="action_people">People</string>
+    <string name="action_search">Search</string>
+    <string name="action_split">Split</string>
+    <string name="app_name">HelloActionBar</string>
+    <string name="ok">OK</string>
+</resources>

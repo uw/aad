@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="aad.app.hello.fragment"
+    package="aad.app.hello.actionbar"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -9,18 +9,25 @@
         android:targetSdkVersion="18" />
 
     <application
+        android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
+        
         <activity
-            android:name="MainActivity"
+            android:name="aad.app.hello.actionbar.MainActivity"
             android:label="@string/app_name" >
+            
+            <!-- 
+            You could use android:uiOptions="splitActionBarWhenNarrow" if you wanted the behavior by default. 
+            -->
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ColorActivity" >
-        </activity>
+        
     </application>
 
 </manifest>

@@ -5,25 +5,26 @@
         android:id="@+id/group1"
         android:menuCategory="container" >
         <item
-            android:id="@+id/item1"
+            android:id="@+id/example1"
             android:showAsAction="always"
-            android:title="Item 1">
+            android:title="@string/example1">
         </item>
         <item
-            android:id="@+id/item2"
+            android:id="@+id/example2"
             android:showAsAction="ifRoom|withText"
-            android:title="Item 2">
+            android:title="@string/example2">
+        </item>
+        <item
+            android:id="@+id/example3"
+            android:showAsAction="ifRoom|withText"
+            android:title="@string/example3">
         </item>
     </group>
     
     <group android:id="@+id/group2" >
         <item
-            android:id="@+id/item3"
-            android:title="Item 3">
-        </item>
-        <item
-            android:id="@+id/item4"
-            android:title="Item 4">
+            android:id="@+id/dump"
+            android:title="@string/dump">
         </item>
     </group>
 

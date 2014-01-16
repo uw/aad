@@ -1,6 +1,7 @@
 package aad.app.hello.fragment;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -10,6 +11,7 @@ import aad.app.hello.fragment.R;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.Context;
@@ -21,6 +23,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -29,9 +32,9 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.app.FragmentManager;
 
-public class HelloFragmentActivity extends Activity implements ActionBar.TabListener {
+public class MainActivity extends Activity implements ActionBar.TabListener {
 
-    public static final String TAG = "HelloFragmentActivity";
+    public static final String TAG = "MainActivity";
 
     private ActionBar mActionBar;
     private boolean mDualPane = true;
@@ -115,7 +118,6 @@ public class HelloFragmentActivity extends Activity implements ActionBar.TabList
 
         });
         
-        
         mListFragment = (ListFragment) getFragmentManager().findFragmentById(R.id.listFragment);        
         mColorFragment = new ColorFragment();
         mTextFragment = new TextFragment();        
@@ -143,8 +145,75 @@ public class HelloFragmentActivity extends Activity implements ActionBar.TabList
         inflater.inflate(R.menu.options, menu);
         return true;
     }
+    
 
-    /** Read the XML resource R.xml.list into an ArrayList */
+    @Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		
+		// Get a hold of existing or initialize new NumberFragments
+		NumberFragment oneFragment = (NumberFragment) getFragmentManager().findFragmentByTag("OneFragment");
+		if (oneFragment == null) {
+			oneFragment = new NumberFragment();
+    		Bundle args1 = new Bundle();
+    		args1.putInt("number", 1);
+    		oneFragment.setArguments(args1);
+		}
+		
+    	NumberFragment twoFragment = (NumberFragment) getFragmentManager().findFragmentByTag("TwoFragment");
+    	if (twoFragment == null) {
+    		twoFragment = new NumberFragment();
+    		Bundle args2 = new Bundle();
+    		args2.putInt("number", 2);
+    		twoFragment.setArguments(args2);
+    	}
+		
+    	NumberFragment threeFragment = (NumberFragment) getFragmentManager().findFragmentByTag("ThreeFragment");
+    	if (threeFragment == null) {
+    		threeFragment = new NumberFragment();
+    		Bundle args3 = new Bundle();
+    		args3.putInt("number", 3);
+    		threeFragment.setArguments(args3);
+    	}
+		
+    	switch (item.getItemId()) {
+    	
+	    	case R.id.example1:
+	    		// Check to see if we have already add them before adding them again
+	    		Fragment addedOneFragment = getFragmentManager().findFragmentByTag("OneFragment");
+	    		if (addedOneFragment != null) {
+	    			Log.w(TAG, "onOptionsItemSelected()|Fragments already added");
+	    			break;
+	    		}
+	    		
+	    		// Actually add the Fragments in one fell swoop... or at least a commit
+	    		getFragmentManager().beginTransaction()
+	    			.add(R.id.mainLayout, oneFragment, "OneFragment").show(oneFragment)
+	    			.add(R.id.mainLayout, twoFragment, "TwoFragment").show(twoFragment)
+	    			.add(R.id.mainLayout, threeFragment, "ThreeFragment").show(threeFragment)
+	    			.commit();
+	    		break;
+	    		
+	    	case R.id.example2:
+	    		getFragmentManager().beginTransaction().hide(oneFragment).commit();			
+	    		break;
+	    		
+	    	case R.id.example3:
+	    		getFragmentManager().beginTransaction()
+	    		.remove(threeFragment)
+	    		.remove(twoFragment)
+	    		.remove(oneFragment)
+	    		.commit();
+	    		break;
+	    		
+	    	case R.id.dump:
+	    		getFragmentManager().dump("", null, new PrintWriter(System.out, true), null);
+	    		break;
+    	}
+    	
+		return super.onOptionsItemSelected(item);
+	}
+
+	/** Read the XML resource R.xml.list into an ArrayList */
     private ArrayList<ListItem> readXML() {
 
         ArrayList<ListItem> items = new ArrayList<ListItem>();
