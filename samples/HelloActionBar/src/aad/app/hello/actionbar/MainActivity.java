@@ -181,7 +181,7 @@ public class MainActivity extends ListActivity implements ActionMode.Callback {
 			AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 			alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 150, pendingIntent);
 
-			// Kill the application
+			// Suicide
 			System.exit(0);
 
 			break;

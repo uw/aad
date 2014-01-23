@@ -11,7 +11,7 @@
         </item>
         <item
             android:id="@+id/example2"
-            android:showAsAction="ifRoom|withText"
+            android:showAsAction="always|withText"
             android:title="@string/example2">
         </item>
         <item
@@ -24,7 +24,8 @@
     <group android:id="@+id/group2" >
         <item
             android:id="@+id/dump"
-            android:title="@string/dump">
+            android:title="@string/dump"
+            android:showAsAction="never">
         </item>
     </group>
 

@@ -41,29 +41,29 @@ public class MainActivity extends Activity {
 
 	}
 
-//	@Override
-//	protected void onRestoreInstanceState(Bundle savedInstanceState) {
-//		
-//		// Restore our arrow position
-//		if (mArrow != null) {
-//			mArrow.setX(savedInstanceState.getFloat("arrowX"));
-//			mArrow.setY(savedInstanceState.getFloat("arrowY"));
-//		}
-//		
-//		super.onRestoreInstanceState(savedInstanceState);
-//	}
-//
-//	@Override
-//	protected void onSaveInstanceState(Bundle outState) {
-//		
-//		// Save our arrow position
-//		if (mArrow != null) {
-//			outState.putFloat("arrowX", mArrow.getX());
-//			outState.putFloat("arrowY", mArrow.getY());
-//		}
-//		
-//		super.onSaveInstanceState(outState);
-//	}
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		
+		// Restore our arrow position
+		if (mArrow != null) {
+			mArrow.setX(savedInstanceState.getFloat("arrowX"));
+			mArrow.setY(savedInstanceState.getFloat("arrowY"));
+		}
+		
+		super.onRestoreInstanceState(savedInstanceState);
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		
+		// Save our arrow position
+		if (mArrow != null) {
+			outState.putFloat("arrowX", mArrow.getX());
+			outState.putFloat("arrowY", mArrow.getY());
+		}
+		
+		super.onSaveInstanceState(outState);
+	}
 	
 	
 }

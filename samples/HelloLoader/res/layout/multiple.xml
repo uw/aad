@@ -7,8 +7,10 @@
 
     <TextView
         android:id="@+id/mainTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Letters"
+        android:textColor="#fff"
+        android:background="#333" />
 
 </LinearLayout>

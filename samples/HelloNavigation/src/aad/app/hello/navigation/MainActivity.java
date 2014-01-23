@@ -1,106 +1,89 @@
 package aad.app.hello.navigation;
 
-import aad.app.hello.navigation.fragments.AboutFragment;
-import android.app.ActionBar;
-import android.app.Activity;
-import android.app.AlarmManager;
-import android.app.Fragment;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
-public class MainActivity extends Activity {
+import aad.app.hello.navigation.fragments.ContentFragment;
+import android.app.ActionBar;
+import android.app.ActionBar.OnNavigationListener;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.widget.ArrayAdapter;
+
+public class MainActivity extends FragmentActivity {
 
 	private ActionBar mActionBar;
+	private ViewPager mPager;
+	private ContentAdapter mContentAdapter;
 	
-	private Fragment mAboutFragment;
+	public class ContentAdapter extends FragmentPagerAdapter {
+		
+        public ContentAdapter(FragmentManager fragmentManager) {
+            super(fragmentManager);
+        }
+
+        @Override
+        public int getCount() {        	
+            return getResources().getStringArray(R.array.array_navigation).length;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+        	
+        	Fragment contentFragment = new ContentFragment();
+        	Bundle args = new Bundle();
+        	args.putInt("position", position);
+        	contentFragment.setArguments(args);
+        	
+            return contentFragment;
+        }
+    }
 	
-	/** Called when the activity is first created. */
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		// We need to do this before we set the Content View		
-		SharedPreferences sp = this.getPreferences(MODE_PRIVATE);
-		boolean isSplit = sp.getBoolean("isSplit", false);
-				
-		if (isSplit)					
-			getWindow().setUiOptions(0);
-		else
-			getWindow().setUiOptions(ActivityInfo.UIOPTION_SPLIT_ACTION_BAR_WHEN_NARROW);
-		
 		setContentView(R.layout.activity_main);		
 		
-		// This is how to do it in API 11 and higher
 		mActionBar = getActionBar();
-		
+		mActionBar.setDisplayShowTitleEnabled(false);
 		mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+	    	    
+	    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.array_navigation, android.R.layout.simple_spinner_dropdown_item);
 
-	}
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		
-		switch (item.getItemId()) {
-		
-			case R.id.action_about:
-				mAboutFragment = getFragmentManager().findFragmentByTag("AboutFragment");
-				
-				if (mAboutFragment == null) {
-					Log.i("@@@", "Adding AboutFragment");
-					mAboutFragment = new AboutFragment();
-					getFragmentManager().beginTransaction().add(R.id.mainLinearLayout, mAboutFragment, "AboutFragment").show(mAboutFragment).commit();
-				}
-				
-			break;
-		
-			case R.id.action_search:
-			break;
-			
-			case R.id.action_split:
+	    mActionBar.setListNavigationCallbacks(adapter, new OnNavigationListener(){
 
-				// Toggle the isSplit value in SharedPreferences	
-				SharedPreferences sp = this.getPreferences(MODE_PRIVATE);
-				boolean isSplit = sp.getBoolean("isSplit", false);
-				sp.edit().putBoolean("isSplit", !isSplit).commit();
-				
-				// To show this off we need to restart the activity
-				Intent mainActivity = new Intent(this, MainActivity.class);
-				
-				int mPendingIntentId = 666;
-				PendingIntent pendingIntent = PendingIntent.getActivity(this, mPendingIntentId, mainActivity, PendingIntent.FLAG_CANCEL_CURRENT);
-				
-				AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-				alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 150, pendingIntent);
-				
-				// Kill the application
-				System.exit(0);
-				
-				break;
-		}
-		
-		return super.onOptionsItemSelected(item);
-	}
+			@Override
+			public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+				mPager.setCurrentItem(itemPosition);
+				return false;
+			}});
 
-
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		
-		MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.activity_main_menu, menu);
 	    
-	    return true;
-		//return super.onCreateOptionsMenu(menu);
-	}
-	
-	
+	    mContentAdapter = new ContentAdapter(getSupportFragmentManager());
+	    mPager = (ViewPager) findViewById(R.id.pager);
+	    mPager.setAdapter(mContentAdapter);
+	    
+	    mPager.setOnPageChangeListener(new OnPageChangeListener(){
+
+			@Override
+			public void onPageScrollStateChanged(int state) {			
+			}
+
+			@Override
+			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {				
+			}
+
+			@Override
+			public void onPageSelected(int position) {
+				mActionBar.setSelectedNavigationItem(position);
+				
+			}});
+	    
+	}	
 	
 }

@@ -16,11 +16,20 @@ public class HelloMultipleLoaders extends Activity implements LoaderCallbacks<St
     public static int LOADER_B = 1;
     public static int LOADER_C = 2;
     
+    private TextView mMainTextView;
+    private StringBuilder mStringBuilder;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        Log.i(TAG, "onCreate()");
+                
         this.setContentView(R.layout.multiple);
         
+        mStringBuilder = new StringBuilder();
+        mMainTextView = (TextView) this.findViewById(R.id.mainTextView);
+                
         this.getLoaderManager().initLoader(LOADER_A, null, this);
         this.getLoaderManager().initLoader(LOADER_B, null, this);
         this.getLoaderManager().initLoader(LOADER_C, null, this);
@@ -28,8 +37,8 @@ public class HelloMultipleLoaders extends Activity implements LoaderCallbacks<St
 
     @Override
     public Loader<String> onCreateLoader(int id, Bundle args) {
-
-        CustomLoader cl;
+        
+        Log.i(TAG, "onCreateLoader() id: " + id);
         
         switch (id) {
             case 0:
@@ -46,21 +55,20 @@ public class HelloMultipleLoaders extends Activity implements LoaderCallbacks<St
     @Override
     public void onLoadFinished(Loader<String> loader, String ourString) {
 
-        Log.i(TAG, "ourString " + ourString);
+        Log.i(TAG, "onLoadFinished() ourString: " + ourString);
         
         // Just dump your letter to screen
-        TextView mainTextView = (TextView) this.findViewById(R.id.mainTextView);
-        String currentText = (String) mainTextView.getText();
-        currentText.concat("\n").concat(ourString);
-        mainTextView.setTag(currentText);        
+        
+        mStringBuilder.append(ourString);
+        mStringBuilder.append("\n");
+        
+        mMainTextView.setText(mStringBuilder.toString());
     }
 
     @Override
-    public void onLoaderReset(Loader<String> arg0) {
-        // Don't do anything
-        
-    }
-    
-    
+    public void onLoaderReset(Loader<String> loader) {
+        Log.i(TAG, "onLoaderReset()");
+        // Don't do anything        
+    }    
 
 }
