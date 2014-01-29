@@ -5,9 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-
-import java.io.PrintWriter;
 
 public class MainActivity extends Activity {
 
@@ -30,10 +27,22 @@ public class MainActivity extends Activity {
         mTitleListFragment  = (TitleListFragment) getFragmentManager().findFragmentByTag("TitleListFragment");
         if (mTitleListFragment == null) {
             mTitleListFragment = new TitleListFragment();
-            getFragmentManager()
+            
+            if (mTitleListFragment.isAdded()) {
+            	
+	            getFragmentManager()
                 .beginTransaction()
-                .add(R.id.titlePlaceholder, mTitleListFragment, "TitleListFragment")
+                .show(mTitleListFragment)
                 .commit();
+            	
+            } else {
+            	
+	            getFragmentManager()
+	                .beginTransaction()
+	                .add(R.id.titlePlaceholder, mTitleListFragment, "TitleListFragment")
+	                .commit();
+            }
+            
         }
         
         // Add the WelcomeFragment if we have a placeholder to write to
@@ -45,10 +54,20 @@ public class MainActivity extends Activity {
             if (mWelcomeFragment == null)
                 mWelcomeFragment = new WelcomeFragment();
             
-            getFragmentManager()
+            if (mWelcomeFragment.isAdded()) {
+            	
+	            getFragmentManager()
                 .beginTransaction()
-                .add(R.id.welcomePlaceholder, mWelcomeFragment, "WelcomeFragment")
+                .show(mWelcomeFragment)
                 .commit();
+            	
+            } else {
+            	
+	            getFragmentManager()
+	                .beginTransaction()
+	                .add(R.id.welcomePlaceholder, mWelcomeFragment, "WelcomeFragment")
+	                .commit();
+            }
         }
         
     }
@@ -107,7 +126,6 @@ public class MainActivity extends Activity {
     }
 
     
-    
     public void showDetail() {
         
         Log.i(TAG, "showDetail()");
@@ -122,19 +140,23 @@ public class MainActivity extends Activity {
         // Add it to the welcome placeholder if available, otherwise just to our top layout
         if (mWelcomePlaceholder != null) {
 
-            getFragmentManager()
-                .beginTransaction()
-                .add(R.id.welcomePlaceholder, mDetailFragment, "DetailFragment")
-                .addToBackStack(null)
-                .commit();
+        	if (!mDetailFragment.isAdded()) {
+	            getFragmentManager()
+	                .beginTransaction()
+	                .add(R.id.welcomePlaceholder, mDetailFragment, "DetailFragment")
+	                .addToBackStack(null)
+	                .commit();
+        	}
             
         } else {
             
-            getFragmentManager()
-                .beginTransaction()
-                .add(R.id.mainPlaceholder, mDetailFragment, "DetailFragment")
-                .addToBackStack(null)
-                .commit();            
+        	if (!mDetailFragment.isAdded()) {
+	            getFragmentManager()
+	                .beginTransaction()
+	                .add(R.id.mainPlaceholder, mDetailFragment, "DetailFragment")
+	                .addToBackStack(null)
+	                .commit();            
+        	}
         }
         
     }

@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/welcomeTextView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="Detail"
         android:textColor="#FFF"
         android:textSize="36dp"
@@ -18,7 +18,7 @@
 	<TextView
         android:id="@+id/welcomeTextView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="Footer"
         android:textColor="#FFF"
         android:textSize="36dp"
