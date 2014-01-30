@@ -15,6 +15,8 @@ public class MainActivity extends Activity {
     private DetailFragment mDetailFragment;
     private FrameLayout mWelcomePlaceholder;
     
+    private boolean mIsDetailVisible = false;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +71,12 @@ public class MainActivity extends Activity {
 	                .commit();
             }
         }
+        
+        // Add the DetailFragment if needed
+        if (mIsDetailVisible == true)
+        	showDetail();
+        else
+        	hideDetail();
         
     }
 
@@ -130,6 +138,8 @@ public class MainActivity extends Activity {
         
         Log.i(TAG, "showDetail()");
         
+        mIsDetailVisible = true;
+        
         mDetailFragment = (DetailFragment) getFragmentManager().findFragmentByTag("DetailFragment");
         if (mDetailFragment == null) {           
             mDetailFragment = new DetailFragment();
@@ -164,6 +174,8 @@ public class MainActivity extends Activity {
     public void hideDetail() {
         
         Log.i(TAG, "hideDetail()");
+        
+        mIsDetailVisible = false;
         
         getActionBar().setDisplayHomeAsUpEnabled(false);
         getFragmentManager().popBackStack();
