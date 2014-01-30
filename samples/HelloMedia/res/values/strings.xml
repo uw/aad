@@ -7,4 +7,5 @@
     <string name="buttonPlayMP3">Play MP3</string>
     <string name="buttonLoopMP3">Loop MP3</string>
     <string name="buttonPlayHit">Play Hit</string>
+    <string name="buttonPlayRingtone">Play Ringtone</string>
 </resources>

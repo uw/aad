@@ -14,7 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-public class HelloCameraActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity implements OnClickListener {
 
     private static int IMAGE_CAPTURE_REQUEST = 1;
     private static String TAG = "HelloCamera";
@@ -26,7 +26,7 @@ public class HelloCameraActivity extends Activity implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_main);
 
         this.findViewById(R.id.cameraAction).setOnClickListener(this);
         this.findViewById(R.id.cameraIntent).setOnClickListener(this);

@@ -4,6 +4,8 @@ package aad.app.hello.camera;
 import aad.app.hello.camera.R;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -12,10 +14,12 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 public class AudioActivity extends Activity implements OnClickListener {
@@ -33,7 +37,7 @@ public class AudioActivity extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        this.setContentView(R.layout.audio);
+        this.setContentView(R.layout.activity_audio);
 
         mIntentButton = (Button) this.findViewById(R.id.recordIntent);
         mIntentButton.setOnClickListener(this);
@@ -56,8 +60,18 @@ public class AudioActivity extends Activity implements OnClickListener {
         switch (v.getId()) {
             
             case R.id.recordIntent:
-                Intent i = new Intent("android.provider.MediaStore.RECORD_SOUND");
-                startActivityForResult(i, 0);
+            	
+            	String recordAction = "android.provider.MediaStore.RECORD_SOUND";
+            	
+            	final PackageManager packageManager = this.getPackageManager();
+                Intent intent = new Intent(recordAction);
+                List<ResolveInfo> list = packageManager.queryIntentActivities(intent, 0);
+                
+                if (list.size() > 0)
+                	startActivityForResult(intent, 0);
+                else
+                	Toast.makeText(this, "No Recording Capability available", Toast.LENGTH_LONG).show();
+                
                 break;
 
             case R.id.playAudioRecord:
@@ -87,14 +101,19 @@ public class AudioActivity extends Activity implements OnClickListener {
     private void playRecording() {
 
         File playFile = new File(mFileName);
+        FileInputStream fis;
         if (playFile.exists()) {
 
             try {
+                
+                fis = new FileInputStream(playFile);
+                
                 MediaPlayer mp = new MediaPlayer();
-                FileInputStream fis = new FileInputStream(playFile);
                 mp.setDataSource(fis.getFD());
                 mp.prepare();
                 mp.start();
+                
+                fis.close();
 
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
@@ -103,7 +122,7 @@ public class AudioActivity extends Activity implements OnClickListener {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
+            
         }
         else {
             Log.e(TAG, "playRecording() File does not exist: " + mFileName);
@@ -139,7 +158,5 @@ public class AudioActivity extends Activity implements OnClickListener {
         mMediaRecorder.stop();
         mMediaRecorder = null;
     }
-    
-    
 
 }

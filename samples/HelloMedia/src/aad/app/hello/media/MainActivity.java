@@ -5,8 +5,11 @@ import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.media.SoundPool;
 import android.media.SoundPool.OnLoadCompleteListener;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,9 +19,9 @@ import android.widget.LinearLayout;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class HelloMediaActivity extends Activity implements OnClickListener, OnLoadCompleteListener {
+public class MainActivity extends Activity implements OnClickListener, OnLoadCompleteListener {
     
-    private static final String TAG = HelloMediaActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     private SoundPool mSoundPool;
     
@@ -31,6 +34,7 @@ public class HelloMediaActivity extends Activity implements OnClickListener, OnL
     private AudioManager mAudioManager;
     private MediaPlayer mMediaPlayer;
     private MediaPlayer mMIDIMediaPlayer;
+    private Ringtone mRingtone;
     
     private class SoundResource {
         
@@ -49,7 +53,7 @@ public class HelloMediaActivity extends Activity implements OnClickListener, OnL
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_main);
         
         LinearLayout ll = (LinearLayout) this.findViewById(R.id.buttonLinearLayout);
         int childCount = ll.getChildCount(); 
@@ -116,7 +120,11 @@ public class HelloMediaActivity extends Activity implements OnClickListener, OnL
                 
             case R.id.playHit :
                 playHit();
-                break;                
+                break;          
+                
+            case R.id.playRingtone :
+                playRingtone();
+                break;   
                 
         }
         
@@ -203,6 +211,27 @@ public class HelloMediaActivity extends Activity implements OnClickListener, OnL
         
         MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.nuke);
         mediaPlayer.start();
+    }
+
+    private void playRingtone() {
+        
+    	// Get an available ringtone
+    	Uri alarm = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        if (alarm == null) {
+            alarm = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            if (alarm == null) {
+                alarm = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+            }
+        }
+
+        // There wasn't a ringtone available
+        if (alarm == null)
+        	return;
+        
+        mRingtone = RingtoneManager.getRingtone(this, alarm);
+        
+        if (mRingtone != null)
+            mRingtone.play();
     }
     
 }

@@ -38,7 +38,7 @@ public class CameraActivity extends Activity {
         super.onCreate(savedInstanceState);
         
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.camera);
+        setContentView(R.layout.activity_camera);
                
         mCameraPreview = new CameraPreview(this);
         FrameLayout fl = (FrameLayout) findViewById(R.id.preview);
