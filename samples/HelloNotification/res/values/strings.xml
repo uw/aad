@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">HelloNavigation</string>
+    <string-array name="array_navigation">
+        <item >Primary</item>
+        <item >Secondary</item>
+        <item >Tertiary</item>
+    </string-array>
+</resources>

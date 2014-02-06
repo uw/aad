@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ExerciseNotifications</string>
+	<string name="app_name_book">ExerciseNotifications: Book</string>
+	<string name="app_name_message">ExerciseNotifications: Message</string>
+	
+	<string name="book_title" formatted="false">New Book: %s</string>
+	<string name="book_content" formatted="false">%s by %s</string>
+	
+
+</resources>

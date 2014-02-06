@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">HelloDialog</string>
+    <string name="message">Message</string>
+    <string name="ok">OK</string>
+    <string name="title">Title</string>
+    <string name="cancel">Cancel</string>
+    <string name="message_long">This is an abnormally long Dialog message.  When these messages get too long, your User probably won\'t read them, so care or beware...</string>
+    <string name="fine_print">This is the fine print</string>
+</resources>
