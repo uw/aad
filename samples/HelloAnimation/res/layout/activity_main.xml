@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainFrameLayout" >"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/activityButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show Activity" />
+
+        <Button
+            android:id="@+id/fragmentButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show Fragment" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+        <Button
+            android:id="@+id/growButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Grow Control" />
+
+        <Button
+            android:id="@+id/shrinkButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shrink Control" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+</FrameLayout>

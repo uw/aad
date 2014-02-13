@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- Why do we have to use Holo as a parent? -->
+    <style name="Theme.Custom" parent="android:Theme.Holo.Light">
+        <!--
+			This is where we will define what styles we use...
+			
+			- ActionBar Background
+			- EditText
+			- Button
+        -->
+        
+
+    </style>
+
+
+</resources>

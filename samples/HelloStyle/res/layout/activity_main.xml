@@ -22,8 +22,6 @@
         android:text="Button" 
         style="@style/Theme.Custom.Button.Special"/>
     
-<!--     style="@style/Theme.Custom.Button.Special" -->
-
     <EditText
         android:id="@+id/editText1"
         android:layout_width="match_parent"
