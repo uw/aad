@@ -36,9 +36,10 @@ public class SymbolView extends View {
         mPaint.setColor(Color.RED);
         canvas.drawCircle(this.getWidth() / 2.0f, this.getHeight() / 2.0f, this.getWidth() / 2, mPaint);
         
+        mPaint.setColor(Color.WHITE);
+        mPaint.setStrokeWidth(10);
+        canvas.drawLine(0, 0, getWidth(), getHeight(), mPaint);
+        
         super.onDraw(canvas);
     }
-
-  
-    
 }
