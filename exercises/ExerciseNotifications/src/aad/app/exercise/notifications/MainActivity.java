@@ -33,7 +33,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		findViewById(R.id.cancelButton).setOnClickListener(this);
 		
 		// TODO Get the NotificationManager
-		
+		mNotificationManager = (NotificationManager) this.getSystemService(NOTIFICATION_SERVICE);
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class MainActivity extends Activity implements OnClickListener {
 				
 			case R.id.cancelButton:
 				// TODO Cancel all notifications
-				
+				mNotificationManager.cancelAll();
 				break;			
 		}
 		
@@ -82,23 +82,31 @@ public class MainActivity extends Activity implements OnClickListener {
 		String title = "Moby Dick";
 		
 		// TODO Create a Bundle to describe the book
-		
+		Bundle b = new Bundle();
+		b.putString("author", author);
+		b.putString("title", title);
 		
 		// TODO Create the Book Intent and add the extras to it
-		
+		Intent bookIntent = new Intent(this, BookActivity.class);
+		bookIntent.putExtras(b);
 		
 		// TODO Create the Book PendingIntent
-		
+		PendingIntent bookPendingIntent = PendingIntent.getActivity(this, BOOK_ID, bookIntent, PendingIntent.FLAG_ONE_SHOT, null);
 		
 		// Format the strings to use for the Notification
 		String notificationTitle = String.format(getString(R.string.book_title), title);
 		String notificationContent = String.format(getString(R.string.book_content), title, author);
 		
 		// TODO Create and use a Book Notification
-		
+		mBookNotification = new Notification.Builder(this)
+			.setContentTitle(notificationTitle)
+			.setContentText(notificationContent)
+			.setContentIntent(bookPendingIntent)
+			.setSmallIcon(R.drawable.ic_stat_book)
+			.build();
 		
 		// TODO Use the NotificationManager to notify
-		
+		mNotificationManager.notify(BOOK_ID, mBookNotification);
 		
 		playAudioNotification();
 	}
@@ -110,22 +118,32 @@ public class MainActivity extends Activity implements OnClickListener {
 		String sender = "Lionel Richie";
 		
 		// TODO Create a Bundle to describe the message
-		
+		Bundle b = new Bundle();
+		b.putString("message", message);
+		b.putString("sender", sender);
 		
 		// TODO Create the Message Intent and add the extras to it
-		
+		Intent messageIntent = new Intent(this, MessageActivity.class);
+		messageIntent.putExtras(b);
 
 		// TODO Create the Message PendingIntent
-		
+		PendingIntent messagePendingIntent = PendingIntent.getActivity(this, MESSAGE_ID, messageIntent, PendingIntent.FLAG_ONE_SHOT, null);
 		
 		// We might find this Bitmap useful...
 		Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.lr);
 		
-		// TODO Create and use a Book Notification
+		// TODO Create and use a Message Notification
+		mMessageNotification = new Notification.Builder(this)
+		.setContentTitle(sender)
+		.setContentText(message)
+		.setContentIntent(messagePendingIntent)
+		.setSmallIcon(R.drawable.ic_stat_message)
+		.setLargeIcon(bm)
+		.build();
 		
 		
 		// TODO Use the NotificationManager to notify
-		
+		mNotificationManager.notify(MESSAGE_ID, mMessageNotification);
 		
 		playAudioNotification();
 	}

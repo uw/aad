@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     
+    <style name="CustomActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/actionbar_gradient</item>
+    </style>
+    
+    <style name="CustomButton" parent="@android:style/Widget.Holo.Light.Button">
+        <item name="android:background">@drawable/control_button</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    
+    <style name="CustomEditText" parent="@android:style/Widget.Holo.Light.EditText">
+        <item name="android:background">@drawable/control_edittext</item>
+        <item name="android:padding">10dp</item>
+    </style>
     
     
 </resources>

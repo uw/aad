@@ -7,7 +7,7 @@
         <item name="android:textAppearance">@style/Theme.Custom.TextAppearance.Button</item>
     </style>
 
-    <style name="Theme.Custom.Button.Special">
+    <style name="Theme.Custom.Button.Special" >
         <item name="android:layout_width">200dp</item>
         <item name="android:layout_height">200dp</item>
         <item name="android:textColor">#ff0000</item>
