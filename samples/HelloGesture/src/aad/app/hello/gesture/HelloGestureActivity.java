@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 
 public class HelloGestureActivity extends Activity implements OnTouchListener, GestureDetector.OnGestureListener {
@@ -95,12 +96,14 @@ public class HelloGestureActivity extends Activity implements OnTouchListener, G
     @Override
     public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY) {
         Log.d(TAG, "onFling() : " + event1.toString()+event2.toString());
+        Toast.makeText(this, "Fling", Toast.LENGTH_SHORT).show();;
         return true;
     }
 
     @Override
     public void onLongPress(MotionEvent event) {
-        Log.d(TAG, "onLongPress() : " + event.toString()); 
+        Log.d(TAG, "onLongPress() : " + event.toString());
+        Toast.makeText(this, "Long Press", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -112,14 +115,14 @@ public class HelloGestureActivity extends Activity implements OnTouchListener, G
     @Override
     public void onShowPress(MotionEvent event) {
         Log.d(TAG, "onShowPress() : " + event.toString());
+        Toast.makeText(this, "Press", Toast.LENGTH_SHORT).show();;
     }
 
     @Override
     public boolean onSingleTapUp(MotionEvent event) {
         Log.d(TAG, "onSingleTapUp() : " + event.toString());
+        Toast.makeText(this, "Single Tap", Toast.LENGTH_SHORT).show();
         return true;
     }
-
-        
 
 }
