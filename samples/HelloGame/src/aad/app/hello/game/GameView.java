@@ -11,21 +11,18 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
-import android.graphics.Rect;
 import android.graphics.Shader.TileMode;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.Surface.OutOfResourcesException;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
 
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
-    private static final String TAG = SurfaceView.class.getSimpleName();
+    //private static final String TAG = SurfaceView.class.getSimpleName();
 
     public static final int SOUND_EXPLOSION = 1;
 
@@ -49,8 +46,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private int mSurfaceHeight;
     private int mSurfaceWidth;
     
-    private boolean mIsGameRunning = true;
-    
+    private boolean mIsGameRunning = true;   
         
     class AnimationThread extends Thread {
 
@@ -85,8 +81,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
             while (mIsThreadRunning) {
                 Canvas c = null;
-                try {
-                    // TODO I don't think we can pass a null here...
+                try {  
                     c = mSurfaceHolder.lockCanvas(null);
                     synchronized (mSurfaceHolder) {
                         update();
@@ -194,6 +189,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
             // Draw the background color. Operations on the Canvas accumulate
             // so this is like clearing the screen. In a real game you can put in a background image of course
+        	if (canvas == null)
+        		return;
+        	
             canvas.drawColor(Color.GRAY);
             
            
@@ -202,9 +200,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             // canvas.drawPoint(mTouchedX, mTouchedY, pointPaint);
             synchronized (mObjects) {
                 for (GameObject object : mObjects) {
-                    // for (AnimatedSprite sprite : mSprites) {
                     object.draw(canvas);
-                    // sprite.draw(canvas);
                 }
             }
 
@@ -212,9 +208,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 canvas.drawText("Score: " + mScore + " Objects: " + mObjects.size() + " FPS: " + fps, 0, 40, textPaint);
             else
                 canvas.drawText("Game Over - Score: " + mScore, 0, 40, textPaint);
-            
-            
-            canvas.restore();
+
         }
 
         public void setRunning(boolean isRunning) {
@@ -279,7 +273,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         mFloorDrawable = new BitmapDrawable(BitmapFactory.decodeResource(context.getResources(), R.drawable.image_floor));
         
         mAnimationThread = new AnimationThread(holder);
-        
     }
 
     @Override
@@ -316,7 +309,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         return true;
     }
-
+    
     /**
      * Callback invoked when the surface dimensions change.
      */
@@ -329,7 +322,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
      * Callback invoked when the Surface has been created and is ready to be used.
      */
     public void surfaceCreated(SurfaceHolder holder) {
-
         
         mSurfaceHeight = holder.getSurfaceFrame().height();
         mSurfaceWidth = holder.getSurfaceFrame().width();
@@ -341,8 +333,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         
         // The thread is actually started here, once the surface is created.
         mAnimationThread.setRunning(true);
-        if (!mAnimationThread.isAlive())
-            mAnimationThread.start();
+        if (!mAnimationThread.isAlive())       	        	
+        	mAnimationThread.start();      	
+        
     }
 
     /**
@@ -353,6 +346,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         // Cleanly shutdown the thread
         boolean retry = true;
         mAnimationThread.setRunning(false);
+
         while (retry) {
             try {
                 mAnimationThread.join();
@@ -361,6 +355,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }
+        }       
     }
 }

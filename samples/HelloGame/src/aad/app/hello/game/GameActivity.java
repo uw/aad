@@ -2,11 +2,9 @@ package aad.app.hello.game;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.WindowManager;
-
 
 public class GameActivity extends Activity {
-
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -18,6 +16,13 @@ public class GameActivity extends Activity {
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED, WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
     }
 
-    
+	@Override
+	protected void onPause() {
+		super.onPause();
+		
+		// Finish to resync the Animation thread
+		this.finish();
+	}
+
     
 }

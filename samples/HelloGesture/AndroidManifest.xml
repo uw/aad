@@ -20,18 +20,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <receiver android:name=".receivers.GoodbyeToastReceiver" >
-            <intent-filter>
-                <action android:name="aad.app.e05.GOODBYE"></action>
-            </intent-filter>
-        </receiver>
-        
-        <service
-            android:name=".services.UpdateService"
-            android:exported="true" >
-
-        </service>
         
         
     </application>

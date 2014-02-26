@@ -5,5 +5,11 @@
     android:layout_height="fill_parent" >
 
 	<!-- TODO Add a FaceView layout element -->
+<aad.app.exercise.canvas.FaceView
+    android:id="@+id/faceView"
+    android:layout_width="144dp"
+    android:layout_height="144dp"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true" />
 
 </RelativeLayout>
