@@ -12,18 +12,18 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name=".HelloWidgetActivity"
+            android:name="MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <receiver
             android:name="BooksAppWidgetProvider"
-            android:label="E11 Book Launcher" >
+            android:label="HelloWidget Book Launcher" >
+            
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -32,9 +32,11 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/books_appwidget_info" />
         </receiver>
+        
         <receiver
-            android:name=".BooksListAppWidgetProvider"
-            android:label="E11 Book List" >
+            android:name="BooksListAppWidgetProvider"
+            android:label="HellowWidget Book List" >
+            
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -44,19 +46,13 @@
                 android:resource="@xml/books_list_appwidget_info" />
         </receiver>
 
-        <activity
-            android:name=".BooksListLiveFolder"
-            android:label="E11 Books List" >
-            <intent-filter>
-                <action android:name="android.intent.action.CREATE_LIVE_FOLDER" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <provider
             android:name=".providers.BooksContentProvider"
-            android:authorities="aad.app.e11.providers.BooksContentProvider" />
+            android:authorities="aad.app.hello.widget.providers.BooksContentProvider" />
+        
+        <service android:name="BooksListService"
+             android:permission="android.permission.BIND_REMOTEVIEWS" />
+        
     </application>
 
 </manifest>

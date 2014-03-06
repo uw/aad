@@ -2,12 +2,9 @@ package aad.app.hello.dragdrop;
 
 import android.app.Activity;
 import android.content.ClipData;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.DragEvent;
@@ -20,14 +17,13 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 
-public class HelloDragDropActivity extends Activity implements OnDragListener, OnLongClickListener {
+public class MainActivity extends Activity implements OnDragListener, OnLongClickListener {
 
-    private static final String TAG = HelloDragDropActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     private static class CustomDragShadowBuilder extends View.DragShadowBuilder {
 
         private BitmapDrawable mBitmapDrawable;
-        private static Drawable shadow;
 
         public CustomDragShadowBuilder(View v) {
 
@@ -68,7 +64,7 @@ public class HelloDragDropActivity extends Activity implements OnDragListener, O
         Log.d(TAG, "onCreate()");
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_main);
         
         // Setup the basket
         ImageView basketImageView = (ImageView) this.findViewById(R.id.basketImageView);
@@ -121,15 +117,14 @@ public class HelloDragDropActivity extends Activity implements OnDragListener, O
                     Toast.makeText(this, "Dropped " + sku, Toast.LENGTH_LONG).show();    
                 }
                 
-
                 return true;
 
             case DragEvent.ACTION_DRAG_ENDED:
                 //Log.d(TAG, "onDrag() ACTION_DRAG_ENDED");
                 return true;
-
-                // An unknown action type was received.
-            default:
+                
+            default: 
+            	// An unknown action type was received.
                 Log.e(TAG, "onDrag() Unknown DragEvent");
 
                 break;

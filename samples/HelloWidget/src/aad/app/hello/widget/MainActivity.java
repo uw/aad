@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.SimpleCursorAdapter;
 
-public class HelloWidgetActivity extends ListActivity {
+public class MainActivity extends ListActivity {
 
-    private static final String TAG = HelloWidgetActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
     
     private BooksDatabaseHelper mDBHelper;
     
@@ -26,7 +26,6 @@ public class HelloWidgetActivity extends ListActivity {
         
         SQLiteDatabase db = mDBHelper.getReadableDatabase();
         
-        //String[] projection = { "_id", "name", "isbn" };
         Cursor c = db.query("books", null, null, null, null, null, null);
         
         String[] from = new String[] { "name", "isbn" };
