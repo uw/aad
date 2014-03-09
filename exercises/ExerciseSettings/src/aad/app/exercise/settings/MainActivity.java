@@ -19,15 +19,17 @@ public class MainActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
-		// TODO Inflate our menu
-		
-	    return true;
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.menu_main, menu);
+		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		
-		// TODO Handle a MenuItem selection
+		if (item.getItemId() == R.id.item_settings) {
+			startActivity(new Intent(this, SettingsActivity.class));
+		}
 		
 		return super.onOptionsItemSelected(item);
 	}

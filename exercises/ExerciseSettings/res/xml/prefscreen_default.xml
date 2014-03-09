@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen 
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="Primary Settings" >
+        <EditTextPreference
+            android:key="display_name"
+            android:title="Set Display Name" />
+
+        <PreferenceScreen android:title="More Options" >
+            <Preference android:title="Lincoln Hawk" />
+
+            <CheckBoxPreference
+                android:key="switch_turned"
+                android:title="Turn the Switch!" />
+            <CheckBoxPreference
+                android:key="over_the_top"
+                android:title="Over the Top!" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="Launch an Intent Here"
+            android:title="Learn Something" >
+            
+           <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://developer.google.com" />
+                    
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Secondary Settings" >
+        <Preference android:title="Something 1" />
+        <Preference android:title="Something 2" />
+        <Preference android:title="Something 3" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
