@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menu_capture"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_device_access_camera"
+        android:title="Capture"/>
+    
+    <item
+        android:id="@+id/menu_item_share"
+        android:actionProviderClass="android.widget.ShareActionProvider"
+        android:showAsAction="ifRoom"
+        android:title="Share"/>
+<!--     <item -->
+<!--         android:id="@+id/menu_share" -->
+<!--         android:title="Share"/> -->
+
+</menu>

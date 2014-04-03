@@ -13,3 +13,7 @@ INSERT INTO books (isbn, keywords, name) values (5, 'computing', 'Pro Android 4'
 INSERT INTO books (isbn, keywords, name) values (6, 'computing', 'Advanced UNIX Programming');
 INSERT INTO books (isbn, keywords, name) values (7, 'computing', 'Game Development with Lua');
 INSERT INTO books (isbn, keywords, name) values (8, 'computing', 'Game Design Perspectives');
+INSERT INTO books (isbn, keywords, name) values (9, 'fiction', 'To Kill a Mockingbird');
+INSERT INTO books (isbn, keywords, name) values (10, 'fiction', 'Pride and Prejudice');
+INSERT INTO books (isbn, keywords, name) values (11, 'fiction', 'Animal Farm');
+INSERT INTO books (isbn, keywords, name) values (12, 'fiction', 'Romeo and Juliet'); 
