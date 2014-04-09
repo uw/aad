@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
 		switch (item.getItemId()) {
 		
 			case R.id.menu_copy:
-				TextView mainTextView = (TextView) findViewById(R.id.mainTextView);				;
+				TextView mainTextView = (TextView) findViewById(R.id.mainTextView);
 			    ClipData clipCopy = ClipData.newPlainText("HelloCopyPaste Content", mainTextView.getText());
 			    mClipboardManager.setPrimaryClip(clipCopy);
 				break;

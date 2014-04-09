@@ -12,8 +12,5 @@
         android:actionProviderClass="android.widget.ShareActionProvider"
         android:showAsAction="ifRoom"
         android:title="Share"/>
-<!--     <item -->
-<!--         android:id="@+id/menu_share" -->
-<!--         android:title="Share"/> -->
 
 </menu>
