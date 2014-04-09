@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ExerciseSearch</string>
+
+    <string name="search_string">I\'m Lonely </string>
+    <string name="search_hint">Find a Friend&#8230;</string>
+
+</resources>
