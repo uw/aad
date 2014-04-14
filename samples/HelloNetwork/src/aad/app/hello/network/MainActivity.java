@@ -21,9 +21,9 @@ import android.widget.Toast;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
-public class HelloNetworkActivity extends Activity {
+public class MainActivity extends Activity {
 
-    private static final String TAG = HelloNetworkActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
     private static final String UPDATE_ACTION = "aad.app.e15.Update";
 
     private TextView mTextView;
@@ -66,15 +66,15 @@ public class HelloNetworkActivity extends Activity {
     }
 
     private static class UpdateHandler extends Handler {
-        private final WeakReference<HelloNetworkActivity> mActivity;
+        private final WeakReference<MainActivity> mActivity;
 
-        public UpdateHandler(HelloNetworkActivity activity) {
-            mActivity = new WeakReference<HelloNetworkActivity>(activity);
+        public UpdateHandler(MainActivity activity) {
+            mActivity = new WeakReference<MainActivity>(activity);
         }
 
         @Override
         public void handleMessage(Message msg) {
-            HelloNetworkActivity activity = mActivity.get();
+            MainActivity activity = mActivity.get();
             if (activity != null) {
                 activity.updateUI();
             }

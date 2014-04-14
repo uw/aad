@@ -26,9 +26,9 @@ import java.io.IOException;
 import java.util.Set;
 import java.util.UUID;
 
-public class HelloBluetoothActivity extends Activity {
+public class MainActivity extends Activity {
 
-    private static final String TAG = HelloBluetoothActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
     
     private static final int REQUEST_ENABLE_BT = 1;
     private BluetoothAdapter mBluetoothAdapter;
