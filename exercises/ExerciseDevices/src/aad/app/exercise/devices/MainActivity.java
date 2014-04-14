@@ -24,26 +24,24 @@ public class MainActivity extends Activity {
 		
 		StringBuilder sb = new StringBuilder();
 				
-		// Get the Device Information
+		// TODO 1 Get the Device Information
 		sb.append("Manufacturer: ");
 		sb.append(Build.MANUFACTURER);
 		sb.append(System.getProperty("line.separator"));
 		sb.append("Model: ");
-		sb.append(Build.MODEL);
-		
+		sb.append(Build.MODEL);		
 		sb.append(System.getProperty("line.separator"));
 		sb.append("SDK: ");
 		sb.append(Build.VERSION.SDK_INT);
 		
 		
-		// Check to see if we are running in an emulator
+		// TODO 2 Check to see if we are running in an emulator
 		// Either by looking for google_sdk or vbox86p as the PRODUCT or the FINGERPRINT starting with generic
 		
 		sb.append(System.getProperty("line.separator"));
 		sb.append("Product: ");
 		String product = Build.PRODUCT;
 		sb.append(product);
-				
 		sb.append(System.getProperty("line.separator"));
 		sb.append("Fingerprint: ");
 		String fingerprint = Build.FINGERPRINT;
@@ -55,12 +53,14 @@ public class MainActivity extends Activity {
 		else
 			sb.append("This is not an Emulator");
 		
-		// Get the Language
+		
+		// TODO 3 Get the Language
 		sb.append(System.getProperty("line.separator"));
 		sb.append("Default Language: ");
 		sb.append(Locale.getDefault().getDisplayLanguage());
 		
-		// Determine if Facebook is installed
+		
+		// TODO 4 Determine if Facebook is installed
 		sb.append(System.getProperty("line.separator"));		
 		PackageManager pm = getPackageManager();
 		try {
@@ -70,7 +70,8 @@ public class MainActivity extends Activity {
     		sb.append("Facebook is not installed");
     	}
 		
-		// Check to see if we have a camera
+		
+		// TODO 5 Check to see if we have a camera
 		sb.append(System.getProperty("line.separator"));
 		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 	    String cameraPackageName = intent.resolveActivity(pm).getPackageName();
