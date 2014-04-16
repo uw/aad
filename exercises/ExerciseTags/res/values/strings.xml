@@ -2,5 +2,7 @@
 <resources>
 
     <string name="app_name">ExerciseTags</string>
+    <string name="main">Main</string>
+    <string name="test">Test</string>
 
 </resources>
