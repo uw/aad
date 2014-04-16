@@ -17,34 +17,10 @@
         android:theme="@style/AppTheme" >
         
         <!-- TODO 2.1 Add an NDEF_DISCOVERED IntentFilter for MainActivity -->
-        <activity
-            android:name="aad.app.exercise.tags.MainActivity"
-            android:label="@string/main" >
-            
-            <intent-filter>
-                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data
-                    android:host="main"
-                    android:scheme="xs" />
-            </intent-filter>
-            
-        </activity>
+        
         
         <!-- TODO 2.2 Add an NDEF_DISCOVERED IntentFilter for TestActivity -->
-        <activity
-            android:name="aad.app.exercise.tags.TestActivity"
-            android:label="@string/test" >
-
-            <intent-filter>
-                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data
-                    android:host="test"
-                    android:scheme="xs" />
-            </intent-filter>
-            
-        </activity>
+        
         
     </application>
 

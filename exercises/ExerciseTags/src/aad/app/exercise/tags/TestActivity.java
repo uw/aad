@@ -10,11 +10,7 @@ public class TestActivity extends BaseActivity {
 		super.onResume();
 
 		// TODO 4.2 Extract our URI
-		Uri xsUri = getNDEFUri(getIntent());
-		if (xsUri != null) {
-			mPathTextView.setBackgroundColor(Color.RED);
-			mPathTextView.setText(xsUri.getLastPathSegment());
-		}
+		
 	}
 
 }
