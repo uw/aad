@@ -11,7 +11,7 @@ import android.os.Bundle;
 
 
 // TODO 1.1 Implement a SensorEventListener
-<<<<<<< HEAD
+
 public class MainActivity extends Activity implements SensorEventListener {
     
     // TODO 2.1  Allocate some members for the Sensor and SensorManager
@@ -20,15 +20,6 @@ public class MainActivity extends Activity implements SensorEventListener {
     
     // TODO 3.1 Allocate a Compass
     private Compass mCompass;
-=======
-public class MainActivity extends Activity {
-    
-    // TODO 2.1  Allocate some members for the Sensor and SensorManager
-	
-    
-    // TODO 3.1 Allocate a Compass
-    
->>>>>>> origin/master
     
     /** Called when the activity is first created. */
     @Override
@@ -38,7 +29,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         
         // TODO 2.2 Get the SensorManager and Orientation Sensor
-<<<<<<< HEAD
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mOrientationSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
         
@@ -74,17 +64,4 @@ public class MainActivity extends Activity {
             return;
         }
     }
-=======
-        
-        
-        // TODO 3.2 Get a reference to the Compass        
-        
-    }
-
-	// TODO 2.3 Properly Register/Unregister the SensorManager listener for Orientation
-    
-    
-    // TODO 1.2 Implement the required SensorEventListener methods
-    
->>>>>>> origin/master
 }

@@ -25,7 +25,6 @@ public class MainActivity extends Activity {
 		StringBuilder sb = new StringBuilder();
 				
 		// TODO 1 Get the Device Information
-<<<<<<< HEAD
 		sb.append("Manufacturer: ");
 		sb.append(Build.MANUFACTURER);
 		sb.append(System.getProperty("line.separator"));
@@ -34,25 +33,10 @@ public class MainActivity extends Activity {
 		sb.append(System.getProperty("line.separator"));
 		sb.append("SDK: ");
 		sb.append(Build.VERSION.SDK_INT);
-=======
-		sb.append("Manufacturer: " + Build.MANUFACTURER);
-		sb.append("\nModel: " + Build.MODEL);
-		sb.append("\nAPI Level: " + Build.VERSION.SDK_INT);
+		sb.append(System.getProperty("line.separator"));
 		
 		// TODO 2 Check to see if we are running in an emulator
 		// Either by looking for google_sdk or vbox86p as the PRODUCT or the FINGERPRINT starting with generic		
-		boolean isEmulator = Build.PRODUCT.equalsIgnoreCase("google_sdk");
-		sb.append("\nIs in emulator: " + isEmulator);
->>>>>>> origin/master
-		
-		// TODO 3 Get the Language
-		Locale defaultLocale = Locale.getDefault();
-		sb.append("\nLocale: " + defaultLocale.getDisplayLanguage());
-		
-<<<<<<< HEAD
-		// TODO 2 Check to see if we are running in an emulator
-		// Either by looking for google_sdk or vbox86p as the PRODUCT or the FINGERPRINT starting with generic
-		
 		sb.append(System.getProperty("line.separator"));
 		sb.append("Product: ");
 		String product = Build.PRODUCT;
@@ -77,10 +61,6 @@ public class MainActivity extends Activity {
 		
 		// TODO 4 Determine if Facebook is installed
 		sb.append(System.getProperty("line.separator"));		
-		PackageManager pm = getPackageManager();
-=======
-		// TODO 4 Determine if Facebook is installed
->>>>>>> origin/master
 		try {
 			getPackageManager().getPackageInfo("com.facebook.katana", 0);
 			sb.append("\nFacebook is installed");
@@ -90,10 +70,7 @@ public class MainActivity extends Activity {
 		
 		
 		// TODO 5 Check to see if we have a camera
-<<<<<<< HEAD
 		sb.append(System.getProperty("line.separator"));
-=======
->>>>>>> origin/master
 		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 	    String cameraPackageName = intent.resolveActivity(getPackageManager()).getPackageName();
 		try {
