@@ -23,11 +23,16 @@ import android.widget.SimpleCursorAdapter.CursorToStringConverter;
 import android.widget.Toast;
 
 // TODO 1.1 Implement the LoaderCallbacks for a Cursor Loader
+<<<<<<< HEAD
 public class MainActivity extends Activity implements LoaderCallbacks<Cursor> {
+=======
+public class MainActivity extends Activity {
+>>>>>>> origin/master
 
 	public static String TAG = "ExerciseSearch";
 	
 	// TODO 1.3 Define the Loader ID
+<<<<<<< HEAD
 	private static int CONTACT_LOADER = 99;
 		
 	// TODO 3.1 Set a SimpleCursorAdapter to use
@@ -43,12 +48,26 @@ public class MainActivity extends Activity implements LoaderCallbacks<Cursor> {
 			ContactsContract.Data.CONTACT_ID, 
 			ContactsContract.Data.LOOKUP_KEY };
 
+=======
+	
+		
+	// TODO 3.1 Set a SimpleCursorAdapter to use
+	
+	
+	// TODO 4.1 Set an AutoCompleteTextView
+	
+	
+	// TODO 2.1 Create our ContactsContract projection
+	
+	
+>>>>>>> origin/master
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
 		// TODO 3.2 Create a SimpleCursorAdapter - Inline
+<<<<<<< HEAD
 		mSimpleCursorAdapter = new SimpleCursorAdapter(
 				this, 
 				android.R.layout.simple_list_item_1, 
@@ -168,4 +187,30 @@ public class MainActivity extends Activity implements LoaderCallbacks<Cursor> {
 		mSimpleCursorAdapter.swapCursor(null);
 	}
 
+=======
+		
+	
+		// TODO 3.3 Set the Cursor String conversion
+		
+		
+		// TODO 4.2 Get a reference to the AutoCompleteTextView
+		
+
+		// TODO 4.3 Set the Adapter on the AutoCompleteTextView
+			
+				
+		// TODO 7.1 Filter our AutoCompleteTextView to update a query with a TextWatcher
+		
+		
+		// TODO 5.1 Register our button an handle an onClick to lookup the Contact
+		
+				
+		// TODO 1.4 Initialize our CursorLoader
+		
+	}
+
+	// TODO 1.2 Define the LoaderCallBacks
+	
+	
+>>>>>>> origin/master
 }

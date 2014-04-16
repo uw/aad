@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">HelloCopyPaste</string>
+    <string name="text_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium in ipsum vulputate venenatis. Nunc venenatis, metus id auctor convallis, sem nunc ornare nulla, at vestibulum metus nunc vitae lorem. Cras nulla urna, interdum in congue nec, gravida a leo. Nullam imperdiet vel dui at lobortis. Mauris diam sem, sollicitudin ac mollis in, euismod mattis tellus.</string>
+</resources>

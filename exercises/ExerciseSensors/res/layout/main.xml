@@ -4,6 +4,7 @@
     android:layout_height="fill_parent"
     android:background="#fff" >
 
+<<<<<<< HEAD
     <!-- TODO Add an a Compass element -->
     <aad.app.exercise.sensors.Compass
         android:id="@+id/compass"
@@ -13,4 +14,9 @@
         android:layout_centerVertical="true"
         android:src="@drawable/compass_rose" />
 
+=======
+    <!-- TODO 3.2 Add an a Compass element -->
+	
+	
+>>>>>>> origin/master
 </RelativeLayout>

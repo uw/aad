@@ -25,6 +25,7 @@ public class MainActivity extends Activity {
 		StringBuilder sb = new StringBuilder();
 				
 		// TODO 1 Get the Device Information
+<<<<<<< HEAD
 		sb.append("Manufacturer: ");
 		sb.append(Build.MANUFACTURER);
 		sb.append(System.getProperty("line.separator"));
@@ -33,8 +34,22 @@ public class MainActivity extends Activity {
 		sb.append(System.getProperty("line.separator"));
 		sb.append("SDK: ");
 		sb.append(Build.VERSION.SDK_INT);
+=======
+		sb.append("Manufacturer: " + Build.MANUFACTURER);
+		sb.append("\nModel: " + Build.MODEL);
+		sb.append("\nAPI Level: " + Build.VERSION.SDK_INT);
 		
+		// TODO 2 Check to see if we are running in an emulator
+		// Either by looking for google_sdk or vbox86p as the PRODUCT or the FINGERPRINT starting with generic		
+		boolean isEmulator = Build.PRODUCT.equalsIgnoreCase("google_sdk");
+		sb.append("\nIs in emulator: " + isEmulator);
+>>>>>>> origin/master
 		
+		// TODO 3 Get the Language
+		Locale defaultLocale = Locale.getDefault();
+		sb.append("\nLocale: " + defaultLocale.getDisplayLanguage());
+		
+<<<<<<< HEAD
 		// TODO 2 Check to see if we are running in an emulator
 		// Either by looking for google_sdk or vbox86p as the PRODUCT or the FINGERPRINT starting with generic
 		
@@ -63,24 +78,31 @@ public class MainActivity extends Activity {
 		// TODO 4 Determine if Facebook is installed
 		sb.append(System.getProperty("line.separator"));		
 		PackageManager pm = getPackageManager();
+=======
+		// TODO 4 Determine if Facebook is installed
+>>>>>>> origin/master
 		try {
-			pm.getPackageInfo("com.facebook.katana", PackageManager.GET_META_DATA);
-			sb.append("Facebook is installed");
-    	} catch (NameNotFoundException e) {
-    		sb.append("Facebook is not installed");
-    	}
+			getPackageManager().getPackageInfo("com.facebook.katana", 0);
+			sb.append("\nFacebook is installed");
+		} catch (NameNotFoundException e) {
+			sb.append("\nFacebook is not installed");
+		}
 		
 		
 		// TODO 5 Check to see if we have a camera
+<<<<<<< HEAD
 		sb.append(System.getProperty("line.separator"));
+=======
+>>>>>>> origin/master
 		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-	    String cameraPackageName = intent.resolveActivity(pm).getPackageName();
+	    String cameraPackageName = intent.resolveActivity(getPackageManager()).getPackageName();
 		try {
-			pm.getPackageInfo(cameraPackageName, PackageManager.GET_META_DATA);
-			sb.append("A camera is available");
+			getPackageManager().getPackageInfo(cameraPackageName, PackageManager.GET_META_DATA);
+			sb.append("\nA camera is available");
     	} catch (NameNotFoundException e) {
-    		sb.append("A camera is not available");
+    		sb.append("\nA camera is not available");
     	}
+
 		
 		mTextView.setText(sb.toString());
 	}
