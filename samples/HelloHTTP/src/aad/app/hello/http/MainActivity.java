@@ -7,8 +7,6 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.Collection;
-import java.util.List;
-import java.util.Map;
 
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
@@ -35,16 +33,15 @@ import android.util.Log;
 import android.util.Xml;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class HelloHTTPActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity implements OnClickListener {
 
-    private static final String TAG = HelloHTTPActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
     
     private static String USER_AGENT = "HelloHTTP/1.0";
 
@@ -313,7 +310,7 @@ public class HelloHTTPActivity extends Activity implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_main);
 
         mContext = this;
         
