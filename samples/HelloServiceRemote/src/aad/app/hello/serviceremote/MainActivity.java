@@ -1,8 +1,9 @@
 
-package aad.app.hello.service;
+package aad.app.hello.serviceremote;
 
-import aad.app.hello.service.services.UpdateService;
-import aad.app.hello.service.services.UpdateService.UpdateBinder;
+import aad.app.hello.serviceremote.R;
+import aad.app.hello.serviceremote.services.UpdateService;
+import aad.app.hello.serviceremote.services.IUpdateService;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,10 +24,8 @@ import android.widget.TextView;
 public class MainActivity extends Activity implements OnClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-
-    private UpdateService mService;
-    private UpdateBinder mBinder;
     
+    private IUpdateService mUpdateService;    
     private boolean mServiceIsBound;
     
     private Handler mGoodbyeHandler = new Handler() {
@@ -57,8 +57,7 @@ public class MainActivity extends Activity implements OnClickListener {
         public void onServiceConnected(ComponentName className, IBinder service) {
             Log.d(TAG, "onServiceConnected()");
             
-            mBinder = (UpdateBinder) service;
-            mService = mBinder.getService();
+            mUpdateService = IUpdateService.Stub.asInterface(service);
         }
 
         @Override
@@ -69,7 +68,7 @@ public class MainActivity extends Activity implements OnClickListener {
             findViewById(R.id.getGoodbyeButton).setEnabled(mServiceIsBound);
             findViewById(R.id.getHelloButton).setEnabled(mServiceIsBound);
             
-            mBinder = null;
+            mUpdateService = null;
         }
     };
     
@@ -103,11 +102,7 @@ public class MainActivity extends Activity implements OnClickListener {
                     Log.w(TAG, "startService() Service already bound");
                     break;
                 }
-                
-                // This call to startService isn't really necessary as BIND_AUTO_CREATE does just that
-                // !!! But it does help fix the START_STICKY option
-                startService(new Intent(this, UpdateService.class));
-                
+                                
                 // Bind to the service
                 bindService(new Intent(this, UpdateService.class), mConnection, Context.BIND_AUTO_CREATE);
                 
@@ -128,22 +123,28 @@ public class MainActivity extends Activity implements OnClickListener {
                 findViewById(R.id.getGoodbyeButton).setEnabled(mServiceIsBound);
                 findViewById(R.id.getHelloButton).setEnabled(mServiceIsBound);
                 
-                stopService(new Intent(this, UpdateService.class));
                 break;
                 
             case R.id.getHelloButton:
                 if (mServiceIsBound) {
                     TextView tv = (TextView) this.findViewById(R.id.serviceTextView);
-                    
-                    tv.setText(tv.getText().toString() + " " + mService.getHello());                    
+
+                    try {
+                        tv.setText(tv.getText().toString() + " " + mUpdateService.getHello());
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
                 }
                 break;
                 
             case R.id.getGoodbyeButton:
                 if (mServiceIsBound) {
-                    
-                    mService.getGoodbye();
-                    
+
+                    try {
+                        mUpdateService.getGoodbye();
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
                 }
                 break;
         }
@@ -167,6 +168,7 @@ public class MainActivity extends Activity implements OnClickListener {
         this.unregisterReceiver(mGoodbyeTextReceiver);
         
         super.onStop();
-    }    
+    }   
+    
 
 }

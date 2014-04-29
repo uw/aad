@@ -1,11 +1,13 @@
 
-package aad.app.hello.service.services;
+package aad.app.hello.serviceremote.services;
 
+import aad.app.hello.serviceremote.services.IUpdateService;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.RemoteException;
 import android.util.Log;
 
 public class UpdateService extends Service {
@@ -26,24 +28,28 @@ public class UpdateService extends Service {
             }
         }        
     }
-       
-    // Return this instance of the service so clients can call public methods
-    public class UpdateBinder extends Binder {
-        public UpdateService getService() {
-            return UpdateService.this;
+
+    public class UpdateBinderProxy extends IUpdateService.Stub {
+
+        @Override
+        public void getGoodbye() throws RemoteException {
+            UpdateService.this.getGoodbye();
         }
+
+        @Override
+        public String getHello() throws RemoteException {
+            return UpdateService.this.getHello();
+        }        
     }
-    
-    // Binder given to clients
-    private final IBinder mBinder = new UpdateBinder();
     
     // Call for the actual bind
     @Override
     public IBinder onBind(Intent intent) {
         Log.d(TAG, "onBind() intent: " + intent);
         startUpdating();
-        return mBinder;
-    }   
+        return new UpdateBinderProxy();
+    }
+    
     
     /**
      * Public method to expose functionality.
@@ -109,8 +115,10 @@ public class UpdateService extends Service {
     public void onDestroy() {
         Log.d(TAG, "onDestroy()");
         stopUpdating();
-                
+        
+        // LEARN: We are forcing an exit here just to show the :service process disappears
+        System.exit(0);
+        
     }
-
 
 }

@@ -163,7 +163,7 @@ public class MainActivity extends Activity {
                 break;
 
             case BluetoothAdapter.STATE_ON:
-                stateString = "State OFF";
+                stateString = "State ON";
                 break;
 
             case BluetoothAdapter.STATE_TURNING_OFF:

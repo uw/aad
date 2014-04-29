@@ -29,9 +29,7 @@
         
         <service
             android:name="aad.app.hello.service.services.UpdateService"
-            android:exported="true"
-            android:process=":service" >
-            
+            android:exported="true" >            
         </service>
         
         

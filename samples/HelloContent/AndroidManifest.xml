@@ -19,11 +19,12 @@
             android:name=".ContactContentActivity" >
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <!-- For Use with HelloProvider -->
+        
 <!--         <activity -->
 <!--             android:name=".MainActivity" > -->
 <!--             <intent-filter > -->
