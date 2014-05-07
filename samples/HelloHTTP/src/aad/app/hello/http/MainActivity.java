@@ -105,24 +105,35 @@ public class MainActivity extends Activity implements OnClickListener {
     }
     
     /** An AsycTask used to update the retrieved HTTP header and content displays */
-    private class GetAsyncTask extends AsyncTask<Void, Void, HttpResponse> {
+    private class GetAsyncTask extends AsyncTask<String, Void, Void> {
 
         @Override
-        protected HttpResponse doInBackground(Void... params) {
-            // Single call to get the response
-            return getResponse();
-        }
+        protected Void doInBackground(String... urls) {
 
-        /**
-         * Handles the HttpResponse after returned. 
-         * */
-        @Override
-        protected void onPostExecute(HttpResponse response) {
-
+        	mClient = AndroidHttpClient.newInstance(USER_AGENT);
+             
+             HttpResponse response = null;
+             
+             String urlString = urls[0];
+             
+             if (urlString == null) {
+            	 Log.e(TAG, "No valid URL string provided");
+            	 return null;
+             }
+             
+             // Make a GET request and execute it to return the response 
+             HttpGet request = new HttpGet(mURLString);
+             try {
+                 response = mClient.execute(request);
+             }
+             catch (IOException e) {
+                 e.printStackTrace();
+             }
+            
             if (response == null) {
                 Log.e(TAG, "Error accessing: " + mURLString);
                 Toast.makeText(mContext, "Error accessing: " + mURLString, Toast.LENGTH_LONG).show();
-                return;
+                return null;
             }
             
             // Get the content
@@ -191,6 +202,8 @@ public class MainActivity extends Activity implements OnClickListener {
             }               
             else {
 
+            	sb.setLength(0); // Reuse the StringBuilder
+            	
                 // Set the text of the Content
                 String body = sb.toString();                                
                 
@@ -200,14 +213,14 @@ public class MainActivity extends Activity implements OnClickListener {
                 }
     
                 // Set the text of the Header
-                mHeaderTextView.setText(sb.toString());
+                //mHeaderTextView.setText(sb.toString());
                 
                 String header = sb.toString();
                 setText(header, body);
             }
             
             mClient.close();
-            super.onPostExecute(response);
+			return null;            
         }
         
         // Call back to the UI thread to update the textual content
@@ -286,24 +299,6 @@ public class MainActivity extends Activity implements OnClickListener {
         
     }
     
-    /** Get the response */
-    private HttpResponse getResponse() {
-
-        mURLString = ((EditText) this.findViewById(R.id.urlEditText)).getText().toString();
-
-        mClient = AndroidHttpClient.newInstance(USER_AGENT);
-
-        // Make a GET request and execute it to return the response 
-        HttpGet request = new HttpGet(mURLString);
-        try {
-            return mClient.execute(request);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
 
     /** Called when the activity is first created. */
     @Override
@@ -328,10 +323,12 @@ public class MainActivity extends Activity implements OnClickListener {
     public void onClick(View v) {
         Log.i(TAG, "onClick()");
         
-        if (v.getId() == R.id.getButton)
-            new GetAsyncTask().execute();
-        else
+        if (v.getId() == R.id.getButton) {
+        	mURLString = ((EditText) this.findViewById(R.id.urlEditText)).getText().toString();	
+            new GetAsyncTask().execute(mURLString);
+        } else {
             new GetImageAsyncTask(mMainImageView).execute("http://www.largebluebutton.com/largebluebutton.jpg");
+        }
     }
 
 }
