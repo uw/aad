@@ -72,6 +72,9 @@ public class HelloDropboxActivity extends Activity {
         
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        //StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); 
+        //StrictMode.setThreadPolicy(policy);
 
         // This is a Dropbox check to see if our manifest is correctly registered for the intent
         Intent testIntent = new Intent(Intent.ACTION_VIEW);

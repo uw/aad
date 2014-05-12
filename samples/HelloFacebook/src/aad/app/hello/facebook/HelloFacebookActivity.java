@@ -50,11 +50,11 @@ public class HelloFacebookActivity extends Activity implements OnClickListener, 
 
         // Trick for dumping your hash
         try {
-            PackageInfo info = getPackageManager().getPackageInfo("aad.app.c23", PackageManager.GET_SIGNATURES);
+            PackageInfo info = getPackageManager().getPackageInfo("aad.app.hello.facebook", PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
-                Log.d(TAG, "onCreate()" + Base64.encodeToString(md.digest(), Base64.DEFAULT));
+                Log.d(TAG, "onCreate() " + Base64.encodeToString(md.digest(), Base64.DEFAULT));
             }
         }
         catch (NameNotFoundException e) {
@@ -142,8 +142,7 @@ public class HelloFacebookActivity extends Activity implements OnClickListener, 
 
             @Override
             public void onCompleted(Response response) {
-                // Log.d(TAG, "Request:onCompleted() response: " +
-                // response.toString());
+                Log.d(TAG, "Request:onCompleted() response: " + response.toString());
 
                 GraphObject go = response.getGraphObject();
                 if (go == null) {
@@ -157,6 +156,7 @@ public class HelloFacebookActivity extends Activity implements OnClickListener, 
 
                     if (mFriendsDBHelper == null)
                         mFriendsDBHelper = new FriendsSQLiteOpenHelper(HelloFacebookActivity.this);
+                    
                     SQLiteDatabase wdb = mFriendsDBHelper.getWritableDatabase();
 
                     // Clean out all existing friends
@@ -203,7 +203,7 @@ public class HelloFacebookActivity extends Activity implements OnClickListener, 
 
                 GraphObject go = response.getGraphObject();
                 if (go == null) {
-                    Log.e(TAG, "showPost() GraphObject is null");
+                    Log.e(TAG, "requestPosts() GraphObject is null");
                     return;
                 }
 
@@ -239,12 +239,12 @@ public class HelloFacebookActivity extends Activity implements OnClickListener, 
 
     private void requestTV() {
         if (mSession.isOpened()) {
+        	
             Request r = new Request(mSession, "/me/television", null, HttpMethod.GET, new Request.Callback() {
 
                 @Override
                 public void onCompleted(Response response) {
-                    // Log.d(TAG, "Request:onCompleted() response: " +
-                    // response.toString());
+                    Log.d(TAG, "Request:onCompleted() response: " + response.toString());
 
                     StringBuilder sb = new StringBuilder();
 
@@ -266,7 +266,6 @@ public class HelloFacebookActivity extends Activity implements OnClickListener, 
                     }
 
                     mMainTextView.setText(sb.toString());
-
                 }
             });
 
@@ -277,7 +276,38 @@ public class HelloFacebookActivity extends Activity implements OnClickListener, 
 
     private void showTV() {
         Log.d(TAG, "showTV() SessionState: " + mSession.getState());
-        requestTV();
+        
+        if (mSession.isOpened()) {
+
+            for (String permission : mSession.getPermissions()) {
+                Log.d(TAG, "showPost() permission: " + permission);
+            }
+
+            // Request read_stream permission if we don't have it
+            if (!mSession.getPermissions().contains("user_likes")) {
+
+                Log.w(TAG, "showTV() Did not find user_likes permission");
+
+                NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(this, Arrays.asList("user_likes"));
+                newPermissionsRequest.setCallback(new StatusCallback() {
+
+                    @Override
+                    public void call(Session session, SessionState state, Exception exception) {
+                        Log.d(TAG, "call() NewPermissionsRequest: " + state);
+                        if (state == SessionState.OPENED) {
+                            Session.setActiveSession(session);
+                            mSession = session;
+                        }
+
+                    }
+                });
+
+                mSession.requestNewReadPermissions(newPermissionsRequest);
+                return;
+            }
+            
+            requestTV();
+        }
     }
 
     @Override

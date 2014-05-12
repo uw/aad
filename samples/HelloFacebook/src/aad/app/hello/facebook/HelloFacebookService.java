@@ -118,7 +118,7 @@ public class HelloFacebookService extends WallpaperService {
                             e.printStackTrace();
                         }
                         catch (IOException e) {
-                            Log.w(TAG, "onVisibilityChanged() Could not find image for " + name);
+                            Log.w(TAG, "FacebookWallpaperEngine:run() Could not find image for " + name);
                         }
                     }
 

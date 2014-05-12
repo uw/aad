@@ -3,4 +3,5 @@
     <string name="app_name">HelloFacebook</string>
     <string name="app_description">Displays your contact images as a background.</string>
     <string name="app_id">268937826508130</string>
+    <string name="app_id_test">620779421323967</string>
 </resources>
