@@ -32,8 +32,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		findViewById(R.id.messageButton).setOnClickListener(this);
 		findViewById(R.id.cancelButton).setOnClickListener(this);
 		
-		// TODO Get the NotificationManager
-		mNotificationManager = (NotificationManager) this.getSystemService(NOTIFICATION_SERVICE);
+		// TODO 1 Get the NotificationManager
+		
 	}
 
 	@Override
@@ -50,8 +50,8 @@ public class MainActivity extends Activity implements OnClickListener {
 				break;
 				
 			case R.id.cancelButton:
-				// TODO Cancel all notifications
-				mNotificationManager.cancelAll();
+				// TODO 4 Cancel all notifications
+				
 				break;			
 		}
 		
@@ -81,32 +81,30 @@ public class MainActivity extends Activity implements OnClickListener {
 		String author = "Herman Melville";
 		String title = "Moby Dick";
 		
-		// TODO Create a Bundle to describe the book
-		Bundle b = new Bundle();
-		b.putString("author", author);
-		b.putString("title", title);
+		// TODO 2.1 Create a Bundle to describe the book
 		
-		// TODO Create the Book Intent and add the extras to it
-		Intent bookIntent = new Intent(this, BookActivity.class);
-		bookIntent.putExtras(b);
 		
-		// TODO Create the Book PendingIntent
-		PendingIntent bookPendingIntent = PendingIntent.getActivity(this, BOOK_ID, bookIntent, PendingIntent.FLAG_ONE_SHOT, null);
+		
+		// TODO 2.2 Create the Book Intent and add the extras to it
+		
+		
+		// TODO 2.3 Create the Book PendingIntent
+		
 		
 		// Format the strings to use for the Notification
 		String notificationTitle = String.format(getString(R.string.book_title), title);
 		String notificationContent = String.format(getString(R.string.book_content), title, author);
 		
-		// TODO Create and use a Book Notification
-		mBookNotification = new Notification.Builder(this)
-			.setContentTitle(notificationTitle)
-			.setContentText(notificationContent)
-			.setContentIntent(bookPendingIntent)
-			.setSmallIcon(R.drawable.ic_stat_book)
-			.build();
+		// TODO 2.4 Create and use a Book Notification
+//		mBookNotification = new Notification.Builder(this)
+//			.setContentTitle(notificationTitle)
+//			.setContentText(notificationContent)
+//			.setContentIntent(bookPendingIntent)
+//			.setSmallIcon(R.drawable.ic_stat_book)
+//			.build();
 		
-		// TODO Use the NotificationManager to notify
-		mNotificationManager.notify(BOOK_ID, mBookNotification);
+		// TODO 2.5 Use the NotificationManager to notify
+		
 		
 		playAudioNotification();
 	}
@@ -117,33 +115,31 @@ public class MainActivity extends Activity implements OnClickListener {
 		String message = "Hello, was it me you were looking for?";
 		String sender = "Lionel Richie";
 		
-		// TODO Create a Bundle to describe the message
-		Bundle b = new Bundle();
-		b.putString("message", message);
-		b.putString("sender", sender);
+		// TODO 3.1 Create a Bundle to describe the message
 		
-		// TODO Create the Message Intent and add the extras to it
-		Intent messageIntent = new Intent(this, MessageActivity.class);
-		messageIntent.putExtras(b);
-
-		// TODO Create the Message PendingIntent
-		PendingIntent messagePendingIntent = PendingIntent.getActivity(this, MESSAGE_ID, messageIntent, PendingIntent.FLAG_ONE_SHOT, null);
+		
+		
+		// TODO 3.2 Create the Message Intent and add the extras to it
+		
+		
+		// TODO 3.3 Create the Message PendingIntent
+		
 		
 		// We might find this Bitmap useful...
 		Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.lr);
 		
-		// TODO Create and use a Message Notification
-		mMessageNotification = new Notification.Builder(this)
-		.setContentTitle(sender)
-		.setContentText(message)
-		.setContentIntent(messagePendingIntent)
-		.setSmallIcon(R.drawable.ic_stat_message)
-		.setLargeIcon(bm)
-		.build();
+		// TODO 3.4 Create and use a Message Notification
+//		mMessageNotification = new Notification.Builder(this)
+//		.setContentTitle(sender)
+//		.setContentText(message)
+//		.setContentIntent(messagePendingIntent)
+//		.setSmallIcon(R.drawable.ic_stat_message)
+//		.setLargeIcon(bm)
+//		.build();
 		
 		
-		// TODO Use the NotificationManager to notify
-		mNotificationManager.notify(MESSAGE_ID, mMessageNotification);
+		// TODO 3.5 Use the NotificationManager to notify
+		
 		
 		playAudioNotification();
 	}
