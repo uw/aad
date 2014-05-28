@@ -18,7 +18,8 @@ public class HelloAdActivity extends Activity implements OnClickListener {
 
     private static final String TAG = HelloAdActivity.class.getSimpleName();
     
-    private static final String AD_UNIT_ID = "a14f320fc7ba5b4";
+    //private static final String AD_UNIT_ID = "a14f320fc7ba5b4";
+    private static final String AD_UNIT_ID = "ca-app-pub-1292759966201886/1072553652";
     
     private AdView mAdView;
 
