@@ -1,6 +1,6 @@
 package aad.app.hello.debug;
 
-import aad.app.hello.fail.Fail;
+import aad.lib.hello.fail.Fail;
 import android.app.Activity;
 import android.os.Bundle;
 

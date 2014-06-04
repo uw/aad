@@ -1,4 +1,4 @@
-package aad.app.hello.fail;
+package aad.lib.hello.fail;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,6 @@
 package aad.app.hello.bugs;
 
-import aad.app.hello.fail.Fail;
+import aad.lib.hello.fail.Fail;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
